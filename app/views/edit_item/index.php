@@ -18,7 +18,7 @@ $images=  $data['image'];
   <?php require_once('app/views/msgbox.php'); ?>
 <div class="w3-row">
 <div class="w3-col s8" style="padding:15px">
-<div class="w3-card-2 w3-round"><!--left images-->
+<div class="w3-card-2 w3-round" style="padding: 15px"><!--left images-->
 <div>
 <button style="margin:5px" onclick="document.getElementById('add_image_modal').style.display='block'" class="w3-btn w3-white w3-round w3-border">+</button>
 </div>
@@ -28,10 +28,11 @@ foreach($images as $image){
 	if(!empty($image))
 	{
 ?>
-<div class=" w3-col m3 s6 " style="padding:2px" >
-<div class="w3-white w3-border" >
+<div class=" w3-col m3 s6" style="padding:5px" >
+<div>
 <div >
-<a href="<?php echo 'delete_pic/'.$image['item_id'].'/'.$image['id']; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border w3-right w3-margin-4">X</button></a>
+<a href="<?php echo 'delete_pic/'.$image['item_id'].'/'.$image['id']; ?>">
+    <button class="w3-small">X</button></a>
 </div>
 <a href="<?php echo URL.'public/upload/'.$image['image']; ?>">
 <img src="<?php echo URL.'public/upload/'.$image['image']; ?>" style="width:100%">

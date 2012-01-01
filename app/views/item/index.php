@@ -1,6 +1,6 @@
 <?php require_once('app/views/head.php'); ?>
 
-<body>
+<body xmlns="http://www.w3.org/1999/html">
 <?php require_once('app/views/header.php'); ?>
 <?php require_once('app/views/menu.php');
 $url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -13,27 +13,31 @@ $url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER['
     <p class="price1 w3-margin-32 w3-round-medium w3-light-grey w3-container">
         <?= $data['name'] ?>
     </p>
-<div class="w3-card w3-margin-32 w3-container w3-padding-16" id="columnTwo">
+<div class="w3-margin-32 w3-container w3-padding-16" id="columnTwo"
+     style="background: url('http://localhost/golbon/public/water.png');
+            background-size: 100% 100%;
+">
 
 <?= $data['long_description'] ?>
-<form id="form" method="post" enctype="multipart/form-data">
+
     <p class="price1">
         قیمت  :<?= $data['price'] ?>
     </p>
     <input type="hidden" name="id" value="<?= $data['id'] ?>"/>
-</form>
-<button id="buy_btn" class="w3-btn w3-green" type="submit" name="submit" >افزودن به سبد خرید</button>
+
+<button id="buy_btn" class="w3-green w3-round" type="submit" name="submit" style="border: none;padding: 8px">افزودن به سبد خرید</button>
 </div>
 </div>
 <div class="w3-col s12 m4 w3-center" >
 <div style="" class=" w3-margin-32 w3-padding-16" id="columnOne">
-
+    <form enctype="multipart/form-data" id="form">
 <p style="text-align: left">
-  <!-- <i class="w3-xlarge fa fa-share-alt"></i> -->
 
-<a href="javascript:void(0)" id="fav_btn"><i class="w3-xlarge fa fa-heart-o"></i></a>
+<a href="javascript:void(0)" id="fav_btn"><i id="fav_button" class="w3-xlarge fa fa-heart" style="color: red"></i></a>
+        <input type="hidden" name="id" value="<?= $data['id'] ?>"/>
 
-</p>
+
+</p></form>
 <div class="w3-center w3-red"><img style="width:100%" src="<?= URL.'public/upload/'.$data['card_image']?>"  /></div>
 <div class=" w3-padding-8" style="margin-top:20px">
 <?php

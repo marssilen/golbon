@@ -26,6 +26,7 @@ $(function(){
     }
     if( msg_obj.st === "added to favorites" ){
       alert("به لیست علاقه مندی ها اضافه شد");
+        $("#fav_button").toggleClass('fa-heart','fa-heart-o');
     }
 	if( msg_obj.st === "nouser" ){
       //alert("fa");

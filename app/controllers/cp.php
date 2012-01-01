@@ -38,7 +38,7 @@ public function search_item($pageno=0)
 function add_item(){
 	if(isAdmin()){
 		$id=$this->formModel->add_new();
-		header("Location: ".URL."cp/edit_item/$id");
+		header("Location: ".URL."edit_item/$id");
 	}
 }
 function delete_item($id=''){
