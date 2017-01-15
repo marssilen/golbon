@@ -42,6 +42,7 @@ class Login_m extends Model
 //					print_r($_POST);
 					echo '</pre><br>';
 					header('location: ../cp/');
+                                        //ok let's change this file
 					//header('location: run');
 				}else{
 					//header('location: ../login');
