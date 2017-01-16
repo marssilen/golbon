@@ -52,6 +52,7 @@
 <div class="w3-card w3-margin-32 w3-container w3-padding-16" id="columnTwo">
     
 <?= $data['long_description'] ?>
+<form method="post" enctype="multipart/form-data">
     <p class="price1">
         قیمت هر واحد:<?= $data['price'] ?>
     </p>
