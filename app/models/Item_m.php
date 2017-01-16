@@ -17,6 +17,10 @@ class Item_m extends Model
 		Session::set('factor_id',$data[0]['id']);
 		return $data[0]['id']; 
 	}
+        function count_items_in_basket($factor_id){
+            $data=$this->db->select("SELECT count(*) as count FROM purchased WHERE factor_id= :factor_id",array('factor_id' => $factor_id));
+            return $data[0]['count'];
+        }
 	function add_item_to_factor($factor_id,$item_id,$num){
             $price=$this->db->select("SELECT price FROM items WHERE id= :item_id LIMIT 1",array('item_id'=>$item_id))[0]['price'];
         $data=$this->db->select("SELECT * FROM purchased WHERE factor_id= :factor_id AND item_id= :item_id LIMIT 1",array('factor_id' => $factor_id,'item_id'=>$item_id));
@@ -30,4 +34,16 @@ class Item_m extends Model
 		$this->db->insert('purchased',array('item_id'=>$item_id,'factor_id'=>$factor_id,'num'=>$num,'price'=>$price));
 		}
 	}
+        function get_menu(){
+            return $this->db->select("SELECT id,menu,href FROM menu WHERE parent= :id",array('id' => 0));
+        }
+        function add_to_favorite($item_id,$user_id){
+            $exist_in_favorites=$this->db->select("SELECT * FROM favorites WHERE user_id= :id AND item_id= :item_id",array('id' => $user_id,'item_id'=>$item_id));
+            $exist_in_items=$this->db->select("SELECT id FROM items WHERE id= :id",array('id' => $item_id));
+            if(empty($exist_in_favorites) && !empty($exist_in_items)){
+                $this->db->insert('favorites',array('item_id'=>$item_id,'user_id'=>$user_id));
+                echo 'done';
+            }
+            
+        }
 }

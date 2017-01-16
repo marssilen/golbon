@@ -20,7 +20,7 @@ Class Session{
 	}
 	public static function timeout(){
 		$now=time();
-		$timelimit=30*60;
+		$timelimit=24*60*60;
 		if($now > Session::get('start')+$timelimit){
 			Session::destroy();
 			return true;

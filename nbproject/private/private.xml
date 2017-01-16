@@ -3,17 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/web/xampp/htdocs/golbon/app/views/item/index.php</file>
+            <file>file:/C:/web/xampp/htdocs/golbon/app/controllers/item.php</file>
             <file>file:/C:/web/xampp/htdocs/golbon/app/controllers/cp.php</file>
-            <file>file:/C:/web/xampp/htdocs/golbon/app/models/Cp_m.php</file>
-            <file>file:/C:/web/xampp/htdocs/golbon/app/views/cp/review_factor.php</file>
-            <file>file:/C:/web/xampp/htdocs/golbon/app/models/Login_m.php</file>
-            <file>file:/C:/web/xampp/htdocs/golbon/app/views/cp/address_add.php</file>
-            <file>file:/C:/web/xampp/htdocs/golbon/app/libs/form.php</file>
-            <file>file:/C:/web/xampp/htdocs/golbon/app/views/cp/shipping.php</file>
-            <file>file:/C:/web/xampp/htdocs/golbon/app/models/Ajax_m.php</file>
-            <file>file:/C:/web/xampp/htdocs/golbon/app/controllers/login.php</file>
-            <file>file:/C:/web/xampp/htdocs/golbon/app/views/cp/panel_top.php</file>
-            <file>file:/C:/web/xampp/htdocs/golbon/app/controllers/ajax.php</file>
+            <file>file:/C:/web/xampp/htdocs/golbon/app/libs/session.php</file>
+            <file>file:/C:/web/xampp/htdocs/golbon/app/models/Item_m.php</file>
             <file>file:/C:/web/xampp/htdocs/golbon/app/config/path.php</file>
         </group>
     </open-files>
