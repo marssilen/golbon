@@ -44,6 +44,7 @@ class Edit_item extends Controller
 		if(isset($_POST['add_image'])){
 			$formModel=$this->model('Edit_item_m');
 			$imagename=	$this->upload_a_file();
+                        echo $imagename;
 			$formModel->add_image($id,$imagename);
 			header("Location: ../$id");
 		}
@@ -110,11 +111,10 @@ class Edit_item extends Controller
 		$formModel=$this->model('Edit_item_m');
 		print_r( $formModel->delete_pic($id,$name));
 		header("Location: ../$id");
-		
 	}
 	
 	private function upload_a_file(){
-		$destination = 'upload/';
+		$destination = 'public/upload/';
 		$upload = new Upload($destination);
 		try {
 					$upload->setMaxSize($this->max_file_size);

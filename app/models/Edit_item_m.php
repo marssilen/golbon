@@ -44,9 +44,24 @@ class Edit_item_m extends Model
 		if(empty($new_image)){
 			return 0;
 		}else{
-			$sql="UPDATE items SET image=CONCAT(image,',$new_image') WHERE id=$id";
-			$result=$this->db->query($sql);
-			return $result->rowCount();
+                    //$images=json_decode();
+//                    echo '<pre>';
+                    $images=$this->db->select("SELECT image FROM items WHERE id= :item_id LIMIT 1",array('item_id'=>$id));
+                    $json=  json_decode($images[0]['image']);
+                    print_r($json);
+                    if(!empty($json)){
+//                        echo 'n';
+                        array_push($json,$new_image);
+                    }
+                    else {
+//                        echo 'y';
+                        $json=array($new_image);
+                        
+                    }
+                    $this->db->update('items',array('image'=>  json_encode($json)),"id=$id");
+//			$sql="UPDATE items SET image=CONCAT(image,',$new_image') WHERE id=$id";
+//			$result=$this->db->query($sql);
+//			return $result->rowCount();
 		}
 		
 	}
@@ -57,14 +72,16 @@ class Edit_item_m extends Model
 			$result=$this->db->query($sql);
 			$result->setFetchMode(PDO::FETCH_ASSOC);
 			$imageq=$result->fetch();
-			$images=explode(',',$imageq['image']);
-			$new_images='';
-			foreach($images as $image){
-				if($image==$name){
-					$image='';
-				}
-				$new_images.=$image.',';
-			}
+			$images=  json_decode($imageq['image']);
+                        $i=0;
+                        foreach ($images as $image){
+                            if($name==$image){
+                                unset($images[$i]);
+                                break;
+                            }
+                            $i++;
+                        }
+			$new_images=  json_encode(array_values($images));
 			$sql="UPDATE items SET image='$new_images' WHERE id=$id";
 			$result=$this->db->query($sql);
 	}

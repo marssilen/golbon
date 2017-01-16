@@ -1,49 +1,38 @@
 <?php
-$images=explode(',',$data['image']);
-
+//$images=explode(',',$data['image']);
+$images=  json_decode($data['image']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>FalavarShop</title>
-  <script src="<?= URL ?>js/j.js"></script>
-  <script src="<?= URL ?>js/ckeditor/ckeditor.js"></script>
-  <link rel="stylesheet" href="<?= URL ?>css/w3.css">
-  <link rel="stylesheet" href="<?= URL ?>css/mycss.css">
+  <title>Edit item</title>
+  <script src="<?= URL ?>public/js/j.js"></script>
+  <script src="<?= URL ?>public/js/ckeditor/ckeditor.js"></script>
+  <link rel="stylesheet" href="<?= URL ?>public/css/w3.css">
+  <link rel="stylesheet" href="<?= URL ?>public/css/mycss.css">
   
-  <link rel="stylesheet" href="<?= URL ?>bootstrap-3.3.6-dist/css/bootstrap.min.css">
-  <script src="<?= URL ?>bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="<?= URL ?>public/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+  <script src="<?= URL ?>public/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8" />
 
-  <script> 
-$(function(){
-   
-		
-		
-		
-});
-</script>
-  
   
 </head>
 <body>
 
 <div class="w3-blue-grey" style="height:50px">
-
+<?php print_r($images); ?>
 </div>
 <div id="top-tool" class="w3-white w3-card-2  ">
 
   <div  class="container center "><!--w3-border w3-border-black-->
     <div class="w3-row">
-      <div class="w3-col s12 m6 sc_ts "><img src="../img/digikala-logo-slogan.png"></div>
+       
       <a href="<?php echo '../cp/ '; ?>"><button class="w3-padding-2 w3-btn w3-green w3-round w3-border w3-right w3-margin-4">پنل</button></a>
       <a href="<?php echo 'delete_item/'.$data['id']; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border w3-right w3-margin-4">حذف</button></a>
-      <div class="w3-col s12 m6 ">
-         
-      </div>
+  
     </div>
   </div>
 </div>
@@ -71,8 +60,8 @@ foreach($images as $image){
 <div >
 <a href="<?php echo 'delete_pic/'.$data['id'].'/'.$image; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border w3-right w3-margin-4">X</button></a>
 </div>
-<a href="<?php echo '../upload/'.$image; ?>">
-<img src="<?php echo '../upload/'.$image; ?>" style="width:100%">
+<a href="<?php echo URL.'public/upload/'.$image; ?>">
+<img src="<?php echo URL.'public/upload/'.$image; ?>" style="width:100%">
 </a>
 </div>
 
@@ -199,7 +188,7 @@ $('#add_table').click(function(e) {
 <div class="w3-col s4" style="padding:15px">
 <div class="w3-card-2">
 
-<img src="<?php if(!empty($data['card_image']))echo '../upload/'.$data['card_image'];else  echo '../img/default.jpg'?>" style="width:100%">
+<img src="<?php if(!empty($data['card_image']))echo URL.'public/upload/'.$data['card_image'];else  echo '../img/default.jpg'?>" style="width:100%">
 <div class="">
 <center>
 <button onclick="document.getElementById('add_card_image_modal').style.display='block'" class="w3-btn w3-green" style="display:block;width:100%">تغییر</button>
