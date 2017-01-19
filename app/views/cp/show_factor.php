@@ -27,7 +27,7 @@ foreach($data as $item){
     $factor_price+=$last_price;
 	?>
 <tr>
-  <td><?= $item['item_id'] ?></td>
+  <td><a href="<?= URL.'item/'.$item['item_id'] ?>"><?= $item['name'] ?></a></td>
   <td><?=$item['num'] ;?></td>
   <td><?= $item['price'] ?></td>
   <td><?= $item['price']*$item['num'] ?></td>

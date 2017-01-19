@@ -64,13 +64,26 @@ FROM factors where user_id=$user_id";//where user_id=$user_id;
         function show_my_factor($factor_id){
 //		$sql="SELECT item_id,num,price,barging,extra_comments
 //FROM purchased where factor_id=$factor_id";//where user_id=$user_id;
-            $sql="SELECT id,item_id,num,price
-FROM purchased where factor_id=$factor_id";
+            $sql="SELECT purchased.id,purchased.item_id,purchased.num,purchased.price,items.name
+FROM purchased INNER JOIN items ON items.id=purchased.item_id where factor_id=$factor_id";
 		//$sql="SELECT purchased.id, items.name, factors.code, factors.status, purchased.user_id
 		//FROM purchased,factors and factors INNER JOIN items ON purchased.item_id=items.id WHERE user_id=$user_id ORDER BY id DESC";// LIMIT $limit ";//
 		$result=$this->db->query($sql);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 		return $result->fetchAll();
+	}
+        function get_menu(){
+            $result=$this->db->select("SELECT * FROM menu ");//,array('pa'=>0)
+            return $result;
+        }
+        function add_menu(){
+            $this->db->insert('menu',array('parent'=>'0'));
+        }
+        function change_menu($post){
+            $this->db->update("menu",array('menu'=>$post['menu'],'href'=>$post['href'],'parent'=>$post['parent']),'id='.$post['id']);
+        }
+        function remove_menu($id){
+		return $this->db->delete('menu',"id=$id");
 	}
         function change_item_numbers($id,$num,$factor_id){
             $result=$this->db->update("purchased",array('num'=>$num),'id='.$id.' AND factor_id='.$factor_id);
@@ -194,7 +207,7 @@ FROM purchased where factor_id=$factor_id";
 		return $result;
     }
     function get_my_favorites($id){
-		$result=$this->db->select("SELECT * FROM favorites WHERE user_id=:ids",array('ids'=>$id));
+		$result=$this->db->select("SELECT items.name,favorites.item_id FROM favorites INNER JOIN items ON items.id=favorites.item_id WHERE user_id=:ids",array('ids'=>$id));
 		return $result;
     }
     function get_my_comments($id){

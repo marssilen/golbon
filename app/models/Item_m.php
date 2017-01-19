@@ -34,8 +34,9 @@ class Item_m extends Model
 		$this->db->insert('purchased',array('item_id'=>$item_id,'factor_id'=>$factor_id,'num'=>$num,'price'=>$price));
 		}
 	}
-        function get_menu(){
-            return $this->db->select("SELECT id,menu,href FROM menu WHERE parent= :id",array('id' => 0));
+        function get_menu($parent=0){
+//            return $this->db->select("SELECT id,menu,href FROM menu WHERE parent= :parent",array('parent' => $parent));
+            return $this->db->select("SELECT * FROM menu");
         }
         function add_to_favorite($item_id,$user_id){
             $exist_in_favorites=$this->db->select("SELECT * FROM favorites WHERE user_id= :id AND item_id= :item_id",array('id' => $user_id,'item_id'=>$item_id));

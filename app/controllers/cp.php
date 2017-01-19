@@ -147,9 +147,31 @@ class Cp extends ControllerPanel
         }
         function purchased(){
             $data=$this->formModel->get_purchased();
-            $this->view('cp/purchased',$data,true);
+            $this->view('cp/purchased',$data,true);  
         }
-		function get_users(){
+        function menu(){
+            $req=array('id','menu','parent','href','submit'); 
+            if(form::check($_POST, $req,TRUE)){
+                if(form::check_type('isiss',$_POST)){
+                   $this->formModel->change_menu($_POST);
+                }
+            }
+            $insert=array('id','submit'); 
+            if(form::check($_POST, $insert,TRUE)){
+                if(form::check_type('is',$_POST)){
+                  $this->formModel->remove_menu($_POST['id']);
+                }
+            }
+            $insert=array('submit'); 
+            if(form::check($_POST, $insert,TRUE)){
+                if(form::check_type('s',$_POST)){
+                  $this->formModel->add_menu();
+                }
+            }
+            $data=$this->formModel->get_menu();
+            $this->view('cp/menu',$data,true);
+        }
+	function get_users(){
             $data=$this->formModel->get_users();
             $this->view('cp/users_list',$data,true);
         }

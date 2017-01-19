@@ -19,14 +19,14 @@ Class Session{
 		session_destroy();
 	}
 	public static function timeout(){
-		$now=time();
-		$timelimit=24*60*60;
-		if($now > Session::get('start')+$timelimit){
-			Session::destroy();
-			return true;
-		}else{
-			Session::set('start',time());
-		}
+//		$now=time();
+//		$timelimit=24*60*60;
+//		if($now > Session::get('start')+$timelimit){
+//			Session::destroy();
+//			return true;
+//		}else{
+//			Session::set('start',time());
+//		}
 		return false;
 	}
 }

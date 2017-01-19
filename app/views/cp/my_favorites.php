@@ -1,13 +1,16 @@
  <table class="table table-striped">
     <thead>
       <tr>
-        <th>item</th>
+        <th>لیست علاقه مندی هام</th>
       </tr>
     </thead>
     <tbody>
-    <?php foreach($data as $comment){?>
+        <?php 
+//        print_r($data);
+        ?>
+    <?php foreach($data as $favorite){?>
       <tr>
-        <td><a href="<?= URL.'item/'.$comment['item_id'] ?>"><?= $comment['item_id'] ?></a></td>
+        <td><a href="<?= URL.'item/'.$favorite['item_id'] ?>"><?= $favorite['name'] ?></a></td>
       </tr>
       
       <?php } ?>
