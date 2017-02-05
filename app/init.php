@@ -12,4 +12,5 @@ require_once 'config/path.php';
 require_once 'libs/database.php';
 require_once 'libs/session.php';
 require_once 'libs/form.php';
+require_once 'libs/functions.php';
 require_once('libs/Upload.php');

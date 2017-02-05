@@ -255,10 +255,16 @@ class Cp extends ControllerPanel
             $data=$this->formModel->get_my_favorites($user_id);
             $this->view('cp/my_favorites',$data);
         }
-        function view($page,$data,$secure=false){
+        function view($page,$data=array(),$secure=false){
             parent::view('cp/panel_top');
             parent::view($page,$data,$secure);
             parent::view('cp/panel_down');
         }
-	
+        function bot(){
+            $web='https://api.telegram.org/bot301194378:AAGDsvj1V5elKNEFAtAyP-I_8-VvAbT8Qgk/';
+            $update=  file_get_contents($web.'getUpdates');
+            $updateA=  json_decode($web, TRUE);
+            echo '<pre>';
+            print_r($updateA);
+        }
 }

@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/web/xampp/htdocs/golbon/app/views/item/index.php</file>
+            <file>file:/C:/web/xampp/htdocs/golbon/app/controllers/cp.php</file>
             <file>file:/C:/web/xampp/htdocs/golbon/app/models/Item_m.php</file>
         </group>
     </open-files>
