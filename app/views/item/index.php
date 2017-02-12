@@ -1,9 +1,7 @@
-<?php
-?>
 <!doctype html>
-<html>
+<html lang="fa">
 <head>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="<?= URL ?>public/bootstrap-3.3.6-dist/css/bootstrap.min.css">
@@ -13,7 +11,7 @@
 <link rel="stylesheet" href="<?= URL ?>public/font/font.css">
 
 <!-- jQuery library -->
-<script src="<?= URL ?>vbootstrap-3.3.6-dist/js/jquery.min.js"></script>
+<script src="<?= URL ?>public/bootstrap-3.3.6-dist/js/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="<?= URL ?>public/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
@@ -28,13 +26,13 @@
         direction: rtl;
     }
     .price1{
-       font-size: 25px; 
+       font-size: 25px;
     }
 </style>
 </head>
 
 <body>
-    <div class="w3-card-2  w3-border">
+<div class="w3-card-2  w3-border">
 <div class="w3-white w3-margin-32  ">
 <!--<img src="<?= URL.'public/img/header.jpg'?>" class="" style="width:100%;max-width:400px"/>-->
     <p>
@@ -42,11 +40,11 @@
     <a href="<?= URL ?>signup" class="w3-margin-16">ثبت نام کنید</a>
     </p>
     <button class="w3-large w3-btn w3-green" type="submit" name="submit"><i class="fa fa-shopping-bag"></i>   سبد خرید<span class="w3-margin-2 w3-round w3-tag w3-light-green"><?=$data['count']?></span></button>
-    
+
 </div>
-        
+
         <div class="w3-light-grey">
-        
+
             <ul class="w3-navbar" style="margin-right: 32px">
             <?php foreach($data['menu'] as $menu){ ?>
                 <?php if($menu['parent']=='0'){ ?>
@@ -55,7 +53,7 @@
             <?php } ?>
 <!--        <li><a class="w3-hover-none w3-text-black" href="#">Home</a></li>-->
 
-        </ul>    
+        </ul>
         </div>
     </div>
 <div class="w3-row w3-card-2 w3-margin-32">
@@ -64,7 +62,7 @@
         <?= $data['name'] ?>
     </p>
 <div class="w3-card w3-margin-32 w3-container w3-padding-16" id="columnTwo">
-    
+
 <?= $data['long_description'] ?>
 <form method="post" enctype="multipart/form-data">
     <p class="price1">
@@ -91,7 +89,7 @@
 <?php //print_r($data);?>
 
 
- <script> 
+ <script>
 $(function(){
    $("#columnTwo").height($("#columnOne").height());
    var a=$("#columnOne").height();

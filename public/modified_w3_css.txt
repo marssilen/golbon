@@ -1,0 +1,1 @@
+@media (max-width:600px){.w3-center-small{width:50%;text-align:center;margin-left: auto;margin-right: auto !important}}
