@@ -1,7 +1,6 @@
 <?php
 class Login_m extends Model
 {
-
 	function __construct(){
 		parent::__construct();
 	}
@@ -11,7 +10,7 @@ class Login_m extends Model
                     echo '<br>login</br>';
 			if($_POST['username']!='' and $_POST['password']!=''){
                              echo '<br>loged in</br>';
-                             echo sha1($_POST['password']); 
+                             echo sha1($_POST['password']);
 				$sth=$this->db->select("SELECT * FROM userlist WHERE username= :username AND password= :password",
 					array('username' => $_POST['username'],'password' => sha1($_POST['password'])));
 					$count=count($sth);
@@ -54,5 +53,5 @@ class Login_m extends Model
 					//header('location: ../login');
 				}
 	}
-	
+
 }

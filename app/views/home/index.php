@@ -8,33 +8,16 @@
 <link rel="stylesheet" href="<?= URL ?>public/w3.css">
 <!--<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">-->
 <link rel="stylesheet" href="<?= URL ?>public/mycss.css">
-<link rel="stylesheet" href="<?= URL ?>public/font/font.css">
-
 <!-- jQuery library -->
 <script src="<?= URL ?>public/bootstrap-3.3.6-dist/js/jquery.min.js"></script>
-
 <!-- Latest compiled JavaScript -->
 <script src="<?= URL ?>public/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 <script src="<?= URL ?>public/myscript.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- include_font -->
+<?php require_once('app/views/font.php'); ?>
 <title>فراورده های کنجدی گلبن</title>
 <style>
-    body, h3{
-        font-family: 'Yekan' ;
-	/*font-size: 15px;*/
-        text-align: right;
-        direction: rtl;
-    }
-    .price1{
-       font-size: 25px;
-    }
-    .pad{
-      padding: 5px;
-    }
-    .image{
-      width:100%;
-      border-radius: 4px 4px 0px 0px;
-    }
+
 </style>
 </head>
 <?php //require 'app/views/head.php'; ?>
@@ -45,28 +28,8 @@ $(function(){
 // $(".image").height($("#image").width()*9/16);
 });
 </script>
-<div class="w3-white w3-margin-32  ">
-<!--<img src="<?= URL.'public/img/header.jpg'?>" class="" style="width:100%;max-width:400px"/>-->
-    <p>
-    <h2 class="w3-left">گلبن image</h2>
-    <a href="<?= URL ?>login" >وارد شوید</a>
-    <a href="<?= URL ?>signup" class="w3-margin-16">ثبت نام کنید</a>
-    </p>
-    <button class="w3-large w3-btn w3-green" type="submit" name="submit"><i class="fa fa-shopping-bag"></i>   سبد خرید<span class="w3-margin-2 w3-round w3-tag w3-light-green"></span></button>
-
-</div>
-<div class="w3-light-grey">
-
-    <ul class="w3-navbar" style="margin-right: 32px">
-    <?php foreach($data['menu'] as $menu){ ?>
-        <?php if($menu['parent']=='0'){ ?>
-        <li class="w3-right"><a class="w3-hover-none w3-text-grey w3-hover-text-white" href="#<?=$menu['href']?> "><?= $menu['menu'] ?></a></li>
-        <?php } ?>
-    <?php } ?>
-<!--        <li><a class="w3-hover-none w3-text-black" href="#">Home</a></li>-->
-
-</ul>
-</div>
+<?php require_once('app/views/header.php'); ?>
+<?php require_once('app/views/menu.php'); ?>
 <!--  -->
 <div class="w3-white w3-padding-16" dir="rtl">
 <div class="container w3-row">
@@ -185,7 +148,7 @@ $(function(){
   </div>
   <div class="w3-col m3 s6 pad">
     <div class="w3-card-4 w3-round">
-   <img class="image " src="public/1.jpg" alt="Norway">
+   <img class="image " src="public/golbon.jpg" alt="Norway">
    <div class="w3-container w3-center pad">
      <p>The Troll's tongue in Hardanger, Norway</p>
    </div>

@@ -1,14 +1,10 @@
 <?php
 class Home extends Controller
 {
-	public function index($name='')
+	public function index()
 	{
-		// $user=$this->model('Home_m');
-		// echo $name;
-		$this->formModel=$this->model('Item_m');
-		$menu=$this->formModel->get_menu();
-		$data[0]['menu']=$menu;
-		$this->view('home/index',$data[0]);
+		$this->is_login= $this->is_login();
+		$this->view('home/index',[]);
 	}
 	public function load_item($index=''){
 		$this->view('home/load_item');

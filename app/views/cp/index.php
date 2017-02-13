@@ -3,7 +3,7 @@
 <div class="w3-row">
 
 <div class="" align="center"><!--left images-->
-<a class="btn btn-info w3-margin-16" href="cp/add_item">Add new Item</a>
+<a class="btn btn-info w3-margin-16" href="<?= URL ?>cp/add_item">Add new Item</a>
 <form action="<?= URL.'cp/search_item/'?>" method="POST">
 <input name="search" type="text" placeholder="Insert id, name or tag">
 <button type="submit" class="btn btn-info w3-margin-16">Search</button>
@@ -31,7 +31,7 @@
 </div>
 
 </div>
-	
+
 
 </div>
 

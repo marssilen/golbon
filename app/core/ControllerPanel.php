@@ -10,7 +10,6 @@ class ControllerPanel extends Controller
 			exit;
 		}
 	}
-
 	public function view($view,$data=[],$secure=false){
 		if($secure){
 			$logged=Session::get('role');
@@ -19,7 +18,6 @@ class ControllerPanel extends Controller
 				header('location: '.URL.'login');
 				exit;
 			}
-			//
 		}
 		require_once 'app/views/'.$view.'.php';
 	}

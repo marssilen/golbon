@@ -1,10 +1,6 @@
 <?php
-class Search extends Controller 
+class Search extends Controller
 {
-	protected $formModel;
-	function __construct(){
-		$this->formModel=$this->model('Search_m');
-	}
 	public function index()
 	{
 		$this->view('search/index');

@@ -1,5 +1,5 @@
 <?php
-class Edit_item extends Controller 
+class Edit_item extends ControllerPanel
 {
 	protected $max_file_size=9999999;
 	protected $cats=array();
@@ -22,23 +22,12 @@ class Edit_item extends Controller
 			} catch (Exception $e) {
 				  echo $e->getMessage();
 			}
-		
-		}elseif(isset($_POST['insert_s'])){
-			 try {
-				  $formModel->change_text_s($id,$_POST['short_description']);
-			} catch (Exception $e) {
-				  echo $e->getMessage();
-			}
 		}
-		
-		
-		
 		$count=$formModel->count();
 		$data=$formModel->show($id);;
 		$this->view('edit_item/index',$data);
-		
 	}
-	
+
 	function add_image($id){
 		$this->check_id($id);
 		if(isset($_POST['add_image'])){
@@ -48,9 +37,9 @@ class Edit_item extends Controller
 			$formModel->add_image($id,$imagename);
 			header("Location: ../$id");
 		}
-		
+
 	}
-	
+
 	function add_card_image($id){
 		$this->check_id($id);
 		if(isset($_POST['add_card_image'])){
@@ -59,9 +48,9 @@ class Edit_item extends Controller
 			$formModel->add_card_image($id,$imagename);
 			header("Location: ../$id");
 		}
-		
+
 	}
-	
+
 	function change_category($id){
 		$this->check_id($id);
 		if(isset($_POST['change_category'])){
@@ -70,16 +59,16 @@ class Edit_item extends Controller
 			header("Location: ../$id");
 		}
 	}
-	
+
 	function change_tag($id){
 		$this->check_id($id);
 		if(isset($_POST['change_tag'])){
 			$formModel=$this->model('Edit_item_m');
 			$formModel->change_tag($id,$_POST['tag']);
 			header("Location: ../$id");
-			
+
 		}
-		
+
 	}
 	function change_name($id){
 		$this->check_id($id);
@@ -98,13 +87,13 @@ class Edit_item extends Controller
 			header("Location: ../$id");
 		}
 	}
-	
+
 	function delete_item($id){
 		$this->check_id($id);
 		$formModel=$this->model('Edit_item_m');
 		$formModel->delete_item($id);
 		header("Location: ../");
-		
+
 	}
 	function delete_pic($id,$name){
 		$this->check_id($id);
@@ -112,7 +101,7 @@ class Edit_item extends Controller
 		print_r( $formModel->delete_pic($id,$name));
 		header("Location: ../$id");
 	}
-	
+
 	private function upload_a_file(){
 		$destination = 'public/upload/';
 		$upload = new Upload($destination);
