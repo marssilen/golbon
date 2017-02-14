@@ -3,12 +3,36 @@ $(function (){
 	function smo(e) {
         currentDiv($(this).attr('n'));
     }
+	/*alert("das");
+	$(".l1,.l2,.l3,.l4,.l5,.l6,.l7,.l8,.l9,.l10,.l11,.l12").each(function(){
+         //$(this).removeClass("m1 m2 m3 m4 m5 m6 m7 m8 m9 m10 m11 m12");
+		 //$(this).removeClass("s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12");
+    });
+	$(".m1,.m2,.m3,.m4,.m5,.m6,.m7,.m8,.m9,.m10,.m11,.m12").each(function(){
+         $(this).removeClass("s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12");
+    });
+	$(".s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10,.s11,.s12").each(function(){
+         $(this).removeClass("m1 m2 m3 m4 m5 m6 m7 m8 m9 m10 m11 m12");
+    });
+	
+	$(".m1,.m2,.m3,.m4,.m5,.m6,.m7,.m8,.m9,.m10,.m11,.m12").each(function(){
+         $(this).addClass("w3-red");
+    });
+	$(".l1,.l2,.l3,.l4,.l5,.l6,.l7,.l8,.l9,.l10,.l11,.l12").each(function(){
+         $(this).addClass("w3-yellow");
+    });
+	$(".s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10,.s11,.s12").each(function(){
+         $(this).addClass("w3-green");
+    });
+	*/
+	/*
     $(".mycard").mouseenter(function(){
          $(this).addClass("w3-card-4");
     }); 
 	$(".mycard").mouseleave(function(){
          $(this).removeClass("w3-card-4");
     });
+	*/
 
 	$(".hover-opacity").delegate("img",'click',function(){
 		alert("ds");

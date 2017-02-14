@@ -40,8 +40,11 @@ align-self:center;
 	float:right
 }
 
-.mycard{
-
+.mycard:hover{
+	//background-color:red;
+}
+.w3-card-4:hover{
+	//background-color:red;
 }
 
 
