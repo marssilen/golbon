@@ -46,7 +46,8 @@ li ul li{
 </style>
 </head>
 <body>
-
+  <?php require_once('app/views/header.php'); ?>
+  <?php require_once('app/views/menu.php'); ?>
  <script>
 $(function(){
 $('.mother').click(function(e) {
@@ -58,18 +59,6 @@ $('.mother').click(function(e) {
 });
 
 </script>
-<div  class="container-fluid bg-dark top-align">
-
-  <div class="row">
-  <div class="col-xs-6" align="left">
-  <h4>Dashboard</h4> <h6>Hello <?=display(Session::get('username'))?></h6>
-  </div>
-  <div class="col-xs-6" align="right">
-
-  <a href="<?= display(URL) ?>cp/logout" class="btn btn-warning">خروج</a>
-  </div>
-  </div>
-</div>
 <div class="container-fluid text-primary" align="">
 <div class="row">
   <div class="col-xs-12 col-sm-2" align="center">
@@ -102,7 +91,7 @@ $('.mother').click(function(e) {
             <li>
                 <a class="mother" href="#">گزارش <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionThreeLinks" ><!--style="display: none;"-->
-                  <li><a href="my_orders">سفارشات من</a></li>
+                  <li><a href="<?= display(URL) ?>cp/my_orders">سفارشات من</a></li>
                   <li><a href="<?= display(URL) ?>cp/my_favorites">لیست مورد علاقه</a></li>
                   <li><a href="<?= display(URL) ?>cp/my_comments">نظرات من</a></li>
                   <li><a href="<?= display(URL) ?>cp/#">پیام پشتیبانی</a></li>

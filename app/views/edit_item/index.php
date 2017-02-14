@@ -2,48 +2,20 @@
 //$images=explode(',',$data['image']);
 $images=  json_decode($data['image']);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Edit item</title>
-  <script src="<?= URL ?>public/js/j.js"></script>
-  <script src="<?= URL ?>public/js/ckeditor/ckeditor.js"></script>
-  <link rel="stylesheet" href="<?= URL ?>public/css/w3.css">
-  <link rel="stylesheet" href="<?= URL ?>public/css/mycss.css">
+<?php require_once('app/views/head.php'); ?>
 
-  <link rel="stylesheet" href="<?= URL ?>public/bootstrap-3.3.6-dist/css/bootstrap.min.css">
-  <script src="<?= URL ?>public/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8" />
-  <!-- include_font -->
-  <?php
-  require_once('app/views/font.php');
-   ?>
-
-</head>
 <body>
+  <?php require_once('app/views/header.php'); ?>
+  <?php require_once('app/views/menu.php'); ?>
+<script src="<?= URL ?>public/js/ckeditor/ckeditor.js"></script>
 
-<div class="w3-blue-grey" style="height:50px">
-<?php print_r($images); ?>
-</div>
-<div id="top-tool" class="w3-white w3-card-2  ">
-
-  <div  class="container center "><!--w3-border w3-border-black-->
-    <div class="w3-row">
-
-      <a href="<?php echo '../cp/ '; ?>"><button class="w3-padding-2 w3-btn w3-green w3-round w3-border w3-right w3-margin-4">پنل</button></a>
-      <a href="<?php echo 'delete_item/'.$data['id']; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border w3-right w3-margin-4">حذف</button></a>
-
-    </div>
-  </div>
-</div>
+<a href="<?php echo 'delete_item/'.$data['id']; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border w3-right w3-margin-4">حذف</button></a>
 
 <br>
 
 
 <div class="w3-white container center" >
+  <?php require_once('app/views/msgbox.php'); ?>
 <div class="w3-row">
 <div class="w3-col s8" style="padding:15px">
 <div class="w3-card-2"><!--left images-->

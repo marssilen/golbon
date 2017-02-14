@@ -5,13 +5,7 @@
 <?php require_once('app/views/menu.php'); ?>
 
 <div class="w3-row w3-card-2 w3-margin-32">
-  <div id="msgbox" class="w3-red w3-round" style="display:none">
-     <span onclick="this.parentElement.style.display='none'" class="w3-closebtn w3-xxxlarge" style="padding-right:10px">&times;</span>
-     <div class=" w3-padding-16">
-    <h3 id="msg" class="w3-center">
-    </h3>
-    </div>
-  </div>
+<?php require_once('app/views/msgbox.php'); ?>
 <div class="w3-col m8 s12">
     <p class="price1 w3-margin-32 w3-round-medium w3-light-grey w3-container">
         <?= $data['name'] ?>
@@ -33,7 +27,7 @@
     <div style="" class=" w3-margin-32 w3-padding-16" id="columnOne">
     <p style="text-align: left">
     <a class="w3-margin-8" href="#"><i class="w3-xlarge fa fa-share-alt"></i></a>
-    <a href="#" id="fav_btn"><i class="w3-xlarge fa fa-heart-o"></i></a>
+    <a href="javascript:void(0)" id="fav_btn"><i class="w3-xlarge fa fa-heart-o"></i></a>
 </p>
 <img src="<?= URL.'public/upload/'.$data['card_image']?>"  />
 <!--style="width:100%"-->
