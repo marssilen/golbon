@@ -2,7 +2,9 @@
 
 <body>
 <?php require_once('app/views/header.php'); ?>
-<?php require_once('app/views/menu.php'); ?>
+<?php require_once('app/views/menu.php');
+$url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+?>
 <br>
 <div class="w3-card-2 w3-white container">
   <!-- w3-row w3-card-2  -->
@@ -25,9 +27,12 @@
 </div>
 <div class="w3-col s12 m4 w3-center" >
 <div style="" class=" w3-margin-32 w3-padding-16" id="columnOne">
+
 <p style="text-align: left">
-<a class="w3-margin-8" href="#"><i class="w3-xlarge fa fa-share-alt"></i></a>
+  <!-- <i class="w3-xlarge fa fa-share-alt"></i> -->
+
 <a href="javascript:void(0)" id="fav_btn"><i class="w3-xlarge fa fa-heart-o"></i></a>
+
 </p>
 <div class="w3-center w3-red"><img style="width:100%" src="<?= URL.'public/upload/'.$data['card_image']?>"  /></div>
 <div class=" w3-padding-8" style="margin-top:20px">
@@ -35,10 +40,27 @@
     <img onclick="show_modal('<?= URL.'public/upload/a_10.jpg'?>')" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
     <img onclick="show_modal('<?= URL.'public/upload/a_11.jpg'?>')" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
 </div>
-
+<div class="w3-margin-16 w3-round">
+  به اشتراک بگذارید
+  <p>
+  <a class="" href="https://t.me/share/url?url=<?= $url ?>&text=Golbon">
+  <img src="<?= URL ?>public/t.png" width="50" height="50" class="w3-circle">
+  </a>
+  <a class="" href="https://twitter.com/home?status=<?= $url ?>">
+  <img src="<?= URL ?>public/twitter.jpg" width="50" height="50" class="w3-circle">
+  </a>
+  <a class="" href="https://www.facebook.com/sharer.php?u=<?= $url ?>">
+    <img src="<?= URL ?>public/face.png" width="50" height="50" class="w3-circle">
+  </a>
+  </p>
+  <!-- <img src="<?= URL ?>public/twitter.jpg" width="50" height="50" class="w3-circle">
+  <img src="<?= URL ?>public/face.png" width="50" height="50" class="w3-circle"> -->
+</div>
 <!--style="width:100%"-->
 </div>
+
 </div>
+
 </div>
 
 <script>

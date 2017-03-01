@@ -16,3 +16,6 @@ body, h3{
 .block{
 display:block;
 }
+a:link {
+    text-decoration: none;
+}

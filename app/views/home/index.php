@@ -62,12 +62,14 @@
   <!--  -->
   <div class="w3-row">
 
-    <div class="w3-col m3 s6 pad mycard">
+    <div class="w3-col m3 s6 pad">
     <div class=" w3-card-2 w3-hover-shadow w3-round">
+    <a href="<?= URL ?>item/1">
     <img class="image" src="<?= URL ?>public/1.jpg" alt="Norway">
     <div class="w3-container w3-center pad">
       <p>The Troll's tongue in Hardanger, Norway</p>
     </div>
+    </a>
     </div>
     </div>
 

@@ -11,7 +11,8 @@
         <span onclick="document.getElementById('login_modal').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
       </div>
 <br>
-      <form class="w3-container" id="login_form" method="post" enctype="multipart/form-data">
+<div class="w3-container">
+      <form id="login_form" method="post" enctype="multipart/form-data">
         <!-- action="" method="post"  -->
         <div class="w3-section">
           <label><b>نام کاربری</b></label>
@@ -23,11 +24,11 @@
           <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> مرا به یاد بسپار</input>
         </div>
       </form>
-<div class="w3-container">
+
 <button class="w3-btn-block w3-green w3-section" id="login_btn">وارد شوید</button>
 </div>
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-btn w3-red w3-left">انصراف</button>
+        <button onclick="document.getElementById('login_modal').style.display='none'" type="button" class="w3-btn w3-red w3-left">انصراف</button>
         <span class="blcok"><a href="<?= URL ?>signup">ثبت نام</a></span>
         <span class="block"><a href="">رمز را فراموش کرده اید؟</a></span>
       </div>
