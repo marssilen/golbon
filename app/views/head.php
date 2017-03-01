@@ -6,6 +6,7 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="<?= URL ?>public/bootstrap-3.3.6-dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?= URL ?>public/w3.css">
+
 <!--<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">-->
 <link rel="stylesheet" href="<?= URL ?>public/mycss.css">
 

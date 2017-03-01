@@ -20,13 +20,16 @@
           <input class="w3-input w3-border" type="password" placeholder="رمز عبور را وارد کنید" name="password" >
           <!-- <button class="w3-btn-block w3-green w3-section w3-padding" id="login_btn">وارد شوید</button> -->
 
-          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> مرا به یاد بسپار
+          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> مرا به یاد بسپار</input>
         </div>
       </form>
-<button class="w3-btn-block w3-green w3-section w3-padding" id="login_btn">وارد شوید</button>
+<div class="w3-container">
+<button class="w3-btn-block w3-green w3-section" id="login_btn">وارد شوید</button>
+</div>
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
         <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-btn w3-red w3-left">انصراف</button>
-        <span class="w3-right w3-padding w3-hide-small"><a href="">رمز را فراموش کرده اید؟</a></span>
+        <span class="blcok"><a href="<?= URL ?>signup">ثبت نام</a></span>
+        <span class="block"><a href="">رمز را فراموش کرده اید؟</a></span>
       </div>
 
     </div>

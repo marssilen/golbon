@@ -31,9 +31,9 @@
 </p>
 <div class="w3-center w3-red"><img style="width:100%" src="<?= URL.'public/upload/'.$data['card_image']?>"  /></div>
 <div class=" w3-padding-8" style="margin-top:20px">
-    <img onclick="document.getElementById('modalimg').style.display='block'" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
-    <img onclick="document.getElementById('modalimg').style.display='block'" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
-    <img onclick="document.getElementById('modalimg').style.display='block'" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
+    <img onclick="show_modal('<?= URL.'public/upload/a_22.png'?>')" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
+    <img onclick="show_modal('<?= URL.'public/upload/a_10.jpg'?>')" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
+    <img onclick="show_modal('<?= URL.'public/upload/a_11.jpg'?>')" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
 </div>
 
 <!--style="width:100%"-->
@@ -41,6 +41,12 @@
 </div>
 </div>
 
+<script>
+function show_modal(src){
+  document.getElementById('modalimg').style.display='block';
+  document.getElementById('img-mod').src=src;
+}
+</script>
 
  <script>
 $(function(){
@@ -112,7 +118,7 @@ $(function(){
 
 
 <div id="modalimg" class="w3-modal w3-animate-zoom w3-center" onclick="this.style.display='none'">
-  <img class="w3-modal-content" src="<?= URL.'public/upload/a_22.png'?>">
+  <img id="img-mod" class="w3-modal-content" src="<?= URL.'public/upload/a_22.png'?>">
 </div>
 
 

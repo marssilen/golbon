@@ -1,4 +1,11 @@
-﻿$formmodel and mode shoud be in this format "Classname_m"
+﻿apache conf.d
+<Directory "C:/web/xampp/golbon">
+    AllowOverride All
+</Directory>
+
+
+
+$formmodel and mode shoud be in this format "Classname_m"
 $this->formModel->
 
 form functions()
