@@ -17,12 +17,16 @@ class Item_m extends Model
 		Session::set('factor_id',$data[0]['id']);
 		return $data[0]['id'];
 	}
-        function count_items_in_basket($factor_id){
-            $data=$this->db->select("SELECT count(*) as count FROM purchased WHERE factor_id= :factor_id",array('factor_id' => $factor_id));
-            return $data[0]['count'];
-        }
+function count_items_in_basket($factor_id){
+    $data=$this->db->select("SELECT count(*) as count FROM purchased WHERE factor_id= :factor_id",array('factor_id' => $factor_id));
+		// count(*)
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
+    return $data[0]['count'];
+}
 	function add_item_to_factor($factor_id,$item_id,$num){
-            $price=$this->db->select("SELECT price FROM items WHERE id= :item_id LIMIT 1",array('item_id'=>$item_id))[0]['price'];
+        $price=$this->db->select("SELECT price FROM items WHERE id= :item_id LIMIT 1",array('item_id'=>$item_id))[0]['price'];
         $data=$this->db->select("SELECT * FROM purchased WHERE factor_id= :factor_id AND item_id= :item_id LIMIT 1",array('factor_id' => $factor_id,'item_id'=>$item_id));
         if(count($data)>0){
         $id=$data[0]['id'];

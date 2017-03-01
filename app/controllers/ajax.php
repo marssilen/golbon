@@ -1,11 +1,10 @@
 <?php
-class Ajax extends Controller 
+class Ajax extends Controller
 {
-	protected $model;
-	function __construct(){
-		$this->model=$this->model('Ajax_m');
-	}
-        public function province(){
+public function header(){
+	require_once('app/views/header_content.php');
+}
+public function province(){
             $pro=array(
                 "...",
                 "آذربایجان شرقی",
@@ -38,27 +37,27 @@ class Ajax extends Controller
                 "مرکزی",
                 "هرمزگان",
                 "همدان",
-                "یزد"    
+                "یزد"
             );
-            
+
             //$this->model->add_province($pro);
             echo json_encode($pro);
         }
-        public function city($province=""){
-            $city=$this->model->get_cities($province);
-            echo json_encode($city);
-        }
-        
+public function city($province=""){
+$city=$this->model->get_cities($province);
+echo json_encode($city);
+}
+
 	public function index($fun=0,$id=0,$cat=0)
 	{
-		$cardModel=$this->model;
-		$count=$cardModel->count();
-		$cardsarray=$cardModel->show($fun,$id,$cat);
-		$cards=array();
-		foreach($cardsarray as $card){
-			$cards[]=new card($card['id'],$card['name'],$card['card_image'],$card['price'],$card['old_price'],'edit_item/'.$card['id']);
-		}
-		$this->view('card/index',['row'=>$count,'cards'=>$cards]);
+		// $cardModel=$this->model;
+		// $count=$cardModel->count();
+		// $cardsarray=$cardModel->show($fun,$id,$cat);
+		// $cards=array();
+		// foreach($cardsarray as $card){
+		// 	$cards[]=new card($card['id'],$card['name'],$card['card_image'],$card['price'],$card['old_price'],'edit_item/'.$card['id']);
+		// }
+		// $this->view('card/index',['row'=>$count,'cards'=>$cards]);
 	}
 	public function cat()
 	{

@@ -1,19 +1,33 @@
-<?php  ?>
 <div class="w3-blue-grey">
-<div style="padding:32px">
-<!--<img src="<?= URL.'public/img/header.jpg'?>" class="" style="width:100%;max-width:400px"/>-->
-    <p>
-    <h2 class="w3-left">گلبن image</h2>
-    <?php if(!$this->is_login){ ?>
-    <a href="<?= URL ?>login" >وارد شوید</a>
-    <a href="<?= URL ?>signup" class="w3-margin-16">ثبت نام کنید</a>
-    <?php }else{ ?>
-      <a href="<?= URL ?>cp" >مدیریت کاربری <i><?=display(Session::get('username'))?></i></a>
-      <a href="<?= URL ?>cp/logout" class="w3-margin-16">خروج</a>
-    <?php } ?>
-    </p>
-    <button class="w3-large w3-btn w3-green" type="submit" name="submit"><i class="fa fa-shopping-bag"></i>   سبد خرید<span class="w3-margin-2 w3-round w3-tag w3-light-green">
-      <?= ($this->is_login)?"":"" ?>
-    </span></button>
+<div style="padding:32px" id="l_header">
+<?php require_once('app/views/header_content.php'); ?>
 </div>
+</div>
+<!--######################################################-->
+<div id="login_modal" class="w3-modal">
+    <div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
+
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById('login_modal').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
+      </div>
+<br>
+      <form class="w3-container" id="login_form" method="post" enctype="multipart/form-data">
+        <!-- action="" method="post"  -->
+        <div class="w3-section">
+          <label><b>نام کاربری</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="نام کاربری را وارد کنید" name="username" >
+          <label><b>رمز عبور</b></label>
+          <input class="w3-input w3-border" type="password" placeholder="رمز عبور را وارد کنید" name="password" >
+          <!-- <button class="w3-btn-block w3-green w3-section w3-padding" id="login_btn">وارد شوید</button> -->
+
+          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> مرا به یاد بسپار
+        </div>
+      </form>
+<button class="w3-btn-block w3-green w3-section w3-padding" id="login_btn">وارد شوید</button>
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-btn w3-red w3-left">انصراف</button>
+        <span class="w3-right w3-padding w3-hide-small"><a href="">رمز را فراموش کرده اید؟</a></span>
+      </div>
+
+    </div>
 </div>

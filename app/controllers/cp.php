@@ -1,29 +1,26 @@
 <?php
-class Cp extends ControllerPanel 
+class Cp extends ControllerPanel
 {
-	protected $formModel;
-	function __construct(){
-		parent::__construct();
-		$this->formModel=$this->model('Cp_m');
-	}
-
 	function logout(){
 		Session::destroy();
 		header('location: ../login');
 		exit;
 	}
-	public function index($pageno=1)
+	public function index(){
+		$this->view('cp/favorites',[],false);
+	}
+	public function items($pageno=1)
 	{
-		$numrows=$this->formModel->count();     
+		$numrows=$this->formModel->count();
 		$rows_per_page = 5;
-                $pages= ceil($numrows/$rows_per_page);
-                $pageno = (int)$pageno;
-                if ($pageno > $pages) {
-                $pageno = $pages;
-                } // if
-                if ($pageno < 1) {
-                $pageno = 1;
-                }
+    $pages= ceil($numrows/$rows_per_page);
+    $pageno = (int)$pageno;
+    if ($pageno > $pages) {
+    $pageno = $pages;
+    } // if
+    if ($pageno < 1) {
+    $pageno = 1;
+    }
 		$data=$this->formModel->get_all($pageno,$rows_per_page);
 		$this->view('cp/index',['data'=>$data,'pages'=>$pages,'current_page'=>$pageno],true);
 	}
@@ -38,11 +35,11 @@ class Cp extends ControllerPanel
 		if($this->formModel->count()%$page_limit!=0){
 			$pages++;
 		}
-		
+
 		if($page==0){
 			$page=$pages;
 		}
-		
+
 		$id=$page*$page_limit;
 		echo $id.' ';
 		echo $count;*/
@@ -51,19 +48,19 @@ class Cp extends ControllerPanel
 		$this->view('cp/index',['data'=>$data,'pages'=>$pages,'current_page'=>$page],true);
 		}
 	}
-	
+
 	function add_item(){
 		$id=$this->formModel->add_new();
-		header("Location: ../edit_item/$id");
+		header("Location: ".URL."cp/edit_item/$id");
 
 	}
 	function delete_item($id=''){
 		$data=$this->formModel->delete_item($id);
-		header("Location: ../");
+		header("Location: ".URL."cp");
 	}
 	function delete_cat($id=''){
 		$data=$this->formModel->delete_cat($id);
-		header("Location: ../show_cat");
+		header("Location: '.URL.'show_cat");
 	}
 	function add_cat(){
 		$id=$this->formModel->add_cat();
@@ -79,38 +76,33 @@ class Cp extends ControllerPanel
 		$this->view('cp/edit_cat',$data,true);
 
 	}
-	/*function show_cat(){
-		$data=$this->formModel->get_all_cat();
-		$this->view('cp/cat_index',$data,true);
-	}*/
 	function my_orders(){
 		$user_id= Session::get('id');
 		$data=$this->formModel->get_my_orders($user_id);
 		$this->view('cp/my_orders',$data);
 	}
-        function factor_show($factor_id){
+  function factor_show($factor_id){
 		//$user_id= Session::get('id');
-                $req=array('pay'); 
+  	$req=array('pay');
 		$data=$this->formModel->show_my_factor($factor_id);
 		$this->view('cp/show_factor',$data);
 	}
-        function factor_review($factor_id){
+
+	function factor_review($factor_id){
 		//$user_id= Session::get('id');
-            
-                print_r($_POST);
-                $req=array('pay','sel'); 
-                //item hay sel vojood dashte bashad
-                if(form::check($_POST, $req)){
-                    echo ' validate <br>';
-                    foreach($_POST['sel'] as $item=>$value){
-                        echo ' '.$item.' '.$value.'<br>';
-                        $this->formModel->change_item_numbers($item,$value,$factor_id);
-                    }
-                }
-		
-                //end
-                //$price=$this->formModel->set_final_factor($factor_id);
-                $data=$this->formModel->show_my_factor($factor_id);
+
+    // print_r($_POST);
+    $req=array('sel');
+    //item hay sel vojood dashte bashad
+    if(form::check($_POST, $req)){
+    // echo ' validate <br>';
+    foreach($_POST['sel'] as $item=>$value){
+	    // echo ' '.$item.' '.$value.'<br>';
+	    $this->formModel->change_item_numbers($item,$value,$factor_id);
+	    }
+    }
+    //$price=$this->formModel->set_final_factor($factor_id);
+    $data=$this->formModel->show_my_factor($factor_id);
 		$this->view('cp/review_factor',$data);
 	}
 	function show_cat($id=0){
@@ -133,36 +125,37 @@ class Cp extends ControllerPanel
             $this->view('cp/shipping',$data);
         }
         function add_address(){
-            $req=array('name','c-phone','s-phone','province','city','address','postal-code','submit'); 
+            $req=array('name','c-phone','s-phone','province','city','address','postal-code','submit');
             if(form::check($_POST, $req,TRUE)){
-                if(form::check_type('siiiisis',$_POST)){
+                // if(form::check_type('siiiisis',$_POST)){
                    $user_id= Session::get('id');
                    $this->formModel->add_address($user_id,$_POST);
-                }
+                // }
+            }else {
+            	echo "no";
             }
-            
+
             $data=array();
-            
             $this->view('cp/address_add',$data);
         }
         function purchased(){
             $data=$this->formModel->get_purchased();
-            $this->view('cp/purchased',$data,true);  
+            $this->view('cp/purchased',$data,true);
         }
         function menu(){
-            $req=array('id','menu','parent','href','submit'); 
+            $req=array('id','menu','parent','href','submit');
             if(form::check($_POST, $req,TRUE)){
                 if(form::check_type('isiss',$_POST)){
                    $this->formModel->change_menu($_POST);
                 }
             }
-            $insert=array('id','submit'); 
+            $insert=array('id','submit');
             if(form::check($_POST, $insert,TRUE)){
                 if(form::check_type('is',$_POST)){
                   $this->formModel->remove_menu($_POST['id']);
                 }
             }
-            $insert=array('submit'); 
+            $insert=array('submit');
             if(form::check($_POST, $insert,TRUE)){
                 if(form::check_type('s',$_POST)){
                   $this->formModel->add_menu();
@@ -176,9 +169,9 @@ class Cp extends ControllerPanel
             $this->view('cp/users_list',$data,true);
         }
 		function edit_user($id){
-			
+
 			if(isset($id)){
-				
+
 				if(isset($_POST['sub']) and $_POST['sub']=='submit'){
 					//print_r($_POST);
 					$this->formModel->edit_user($id,array('password'=>htmlentities($_POST['pass']),'email'=>htmlentities($_POST['email']),
@@ -191,13 +184,13 @@ class Cp extends ControllerPanel
 				$data=$data[0];
 				$this->view('cp/edit_user',$data,true);
 			}
-			
+
 			}
 		}
 		function edit_order($id){
-			
+
 			if(isset($id)){
-				
+
 				if(isset($_POST['sub']) and $_POST['sub']=='submit'){
 					//print_r($_POST);
 					/*$this->formModel->edit_user($id,array('password'=>htmlentities($_POST['pass']),'email'=>htmlentities($_POST['email']),
@@ -210,7 +203,7 @@ class Cp extends ControllerPanel
 				$data=$data[0];
 				$this->view('cp/edit_order',$data,true);
 			}
-			
+
 			}
 		}
 		function comments($verified=false){
@@ -224,7 +217,7 @@ class Cp extends ControllerPanel
         }
 		function edit_comment($id){
 			if(isset($id)){
-				
+
 				if(isset($_POST['sub']) and $_POST['sub']=='submit'){
 					$this->formModel->edit_comment($id,array('comment'=>htmlentities($_POST['comment']),'verified'=>htmlentities($_POST['verified'])));
 				}elseif(isset($_POST['sub']) and $_POST['sub']=='delete'){
@@ -237,7 +230,7 @@ class Cp extends ControllerPanel
 				$data=$data[0];
 				$this->view('cp/edit_comment',$data,true);
 			}
-			
+
 			}
         }
         function profile(){

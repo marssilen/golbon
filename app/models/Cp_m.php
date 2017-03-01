@@ -14,8 +14,8 @@ class Cp_m extends Model
 		$result=$this->db->select("SELECT id FROM items ORDER BY id DESC LIMIT 1");
 		return $result[0]['id'];
 	}
-        function add_address($user_id,$post){
-            print_r($post);
+  function add_address($user_id,$post){
+  // print_r($post);
 		$this->db->insert('address',array(
                     'name'=>$post['name'],
                     'c_phone'=>$post['c-phone'],
@@ -26,7 +26,7 @@ class Cp_m extends Model
                     'postal_code'=>$post['postal-code'],
                     'user_id'=>$user_id
                     ));
-		
+
 	}
 	function get_all_id(){
 		$result=$this->db->select("SELECT id FROM items ");
@@ -54,7 +54,7 @@ class Cp_m extends Model
 	function get_my_orders($user_id){
 		$sql="SELECT id,status,factor_id,date,factor_price
 FROM factors where user_id=$user_id";//where user_id=$user_id;
-            
+
 		//$sql="SELECT purchased.id, items.name, factors.code, factors.status, purchased.user_id
 		//FROM purchased,factors and factors INNER JOIN items ON purchased.item_id=items.id WHERE user_id=$user_id ORDER BY id DESC";// LIMIT $limit ";//
 		$result=$this->db->query($sql);
@@ -104,7 +104,7 @@ FROM purchased INNER JOIN items ON items.id=purchased.item_id where factor_id=$f
 		return $this->db->delete('items',"id=$id");
 	}
 	function add_cat(){
-		$sql="INSERT INTO `category` (`cat`) 
+		$sql="INSERT INTO `category` (`cat`)
 		VALUES ('');";
 		$result=$this->db->query($sql);
 		$sql='SELECT id FROM category ORDER BY id DESC LIMIT 1';
@@ -122,13 +122,13 @@ FROM purchased INNER JOIN items ON items.id=purchased.item_id where factor_id=$f
 	function delete_cat($id){
 			$sql="DELETE FROM category WHERE id=$id";
 			$result=$this->db->query($sql);
-			return $result->rowCount();	
+			return $result->rowCount();
 	}
 	function edit_cat($id,$cat,$pa){
-			$sql="UPDATE `category` SET 
+			$sql="UPDATE `category` SET
 			`cat` = '$cat', pa_cat='$pa' WHERE `category`.`id` = $id";
 			$result=$this->db->query($sql);
-			return $result->rowCount();	
+			return $result->rowCount();
 	}
 	function show_cat($id){
 		$sql="SELECT * FROM category where id=$id";
@@ -153,13 +153,13 @@ FROM purchased INNER JOIN items ON items.id=purchased.item_id where factor_id=$f
 		//echo '<ul>';
 		foreach($r as $row){
 			$this->arr[]=$row;
-			
+
 			$this->stream.='<li pa="'.$row['pa_cat'].'" li_id="'.$row['id'].'">';
 			//echo '<li pa="'.$row['pa_cat'].'" li_id="'.$row['id'].'">';
 			$this->stream.='<a type="button" class="btn-primary" href="edit_cat/'.$row['id'].'">'.$row['cat'].'</a>'.'<a href="delete_cat/'.$row['id'].'"> delete</a> <a href="" class="add_list_a" data-toggle="modal" data-target="#myModal" pa="'.$row['id'].'">+</a>';
 			//echo $row['cat'].' <a href="" class="add_list_a" data-toggle="modal" data-target="#myModal" pa="'.$row['id'].'">+</a>';
 			$this->find_cat_children($row['id']);
-			
+
 			$this->stream.='</li>';
 			//echo '</li>';
 		}

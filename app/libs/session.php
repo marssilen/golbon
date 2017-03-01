@@ -12,21 +12,21 @@ Class Session{
 	}
 	public static function destroy(){
 		$_SESSION=array();
-		
+
 		if(isset($_COOKIE[session_name()])){
 			setcookie(session_name(),'',time()-86400,'/');
 		}
 		session_destroy();
 	}
 	public static function timeout(){
-//		$now=time();
-//		$timelimit=24*60*60;
-//		if($now > Session::get('start')+$timelimit){
-//			Session::destroy();
-//			return true;
-//		}else{
-//			Session::set('start',time());
-//		}
+		$now=time();
+		$timelimit=24*60*60;
+		if($now > Session::get('start')+$timelimit){
+			Session::destroy();
+			return true;
+		}else{
+			Session::set('start',time());
+		}
 		return false;
 	}
 }
