@@ -61,11 +61,9 @@ FROM factors where user_id=$user_id";//where user_id=$user_id;
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 		return $result->fetchAll();
 	}
-        function show_my_factor($factor_id){
-//		$sql="SELECT item_id,num,price,barging,extra_comments
-//FROM purchased where factor_id=$factor_id";//where user_id=$user_id;
-            $sql="SELECT purchased.id,purchased.item_id,purchased.num,purchased.price,items.name
-FROM purchased INNER JOIN items ON items.id=purchased.item_id where factor_id=$factor_id";
+function show_my_factor($factor_id){
+    $sql="SELECT purchased.id,purchased.item_id,purchased.num,purchased.price,items.name
+		FROM purchased INNER JOIN items ON items.id=purchased.item_id where factor_id=$factor_id";
 		//$sql="SELECT purchased.id, items.name, factors.code, factors.status, purchased.user_id
 		//FROM purchased,factors and factors INNER JOIN items ON purchased.item_id=items.id WHERE user_id=$user_id ORDER BY id DESC";// LIMIT $limit ";//
 		$result=$this->db->query($sql);
@@ -89,7 +87,9 @@ FROM purchased INNER JOIN items ON items.id=purchased.item_id where factor_id=$f
             $result=$this->db->update("purchased",array('num'=>$num),'id='.$id.' AND factor_id='.$factor_id);
 		return $result;
         }
-        function set_final_factor($factor_id){
+
+
+  function set_final_factor($factor_id,$address){
             $sql="SELECT num,price FROM purchased where factor_id=$factor_id";
             $result=$this->db->query($sql);
             $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -97,9 +97,11 @@ FROM purchased INNER JOIN items ON items.id=purchased.item_id where factor_id=$f
             foreach ($result as $item){
                 $whole_price+=$item['price']*$item['num'];
             }
-            $result=$this->db->update("factors",array('factor_price'=>$whole_price,'status'=>1),'id='.$factor_id);
+						$timestamp = date('Y-m-d H:i:s');
+            $result=$this->db->update("factors",array('factor_price'=>$whole_price,'status'=>1,'date'=>$timestamp,'address'=>$address),'id='.$factor_id);
             return $whole_price;
-        }
+    }
+
 	function delete_item($id){
 		return $this->db->delete('items',"id=$id");
 	}

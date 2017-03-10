@@ -5,6 +5,7 @@ class Login_m extends Model
 		parent::__construct();
 	}
 	public function run(){
+			echo hash('sha256',$timestamp);
 		if(isset($_POST['username']) and isset($_POST['password']))
 		{
 			if($_POST['username']!='' and $_POST['password']!=''){

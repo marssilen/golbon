@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>hello</title>
+    <title>ناحیه کاربری</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
@@ -62,10 +62,8 @@ $('.mother').click(function(e) {
 <div class="container-fluid text-primary" align="">
 <div class="row">
   <div class="col-xs-12 col-sm-2" align="center">
-  <h6><span class="glyphicon glyphicon-wrench"> Tools</span></h6>
+  <!-- <h6><span class="glyphicon glyphicon-wrench"> </span></h6> -->
   <hr>
-
-
   <div id="navigation" align="left" dir="ltr">
         <ul>
         <?php if(Session::get('role')=='admin'){?>
@@ -76,6 +74,7 @@ $('.mother').click(function(e) {
                   <li><a href="<?= display(URL) ?>cp/show_cat"><span class="glyphicon glyphicon-list"></span> Categories</a></li>
                   <li><a href="<?= display(URL) ?>cp/s"><span class="glyphicon glyphicon-picture"></span> Files</a></li>
                   <li><a href="<?= display(URL) ?>cp/purchased"><span class="glyphicon glyphicon-shopping-cart"></span> Orders</a></li>
+                  <li><a href="<?= display(URL) ?>cp/menu">Menu</a></li>
                 </ul>
             </li>
             <li>

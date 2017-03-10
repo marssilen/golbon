@@ -11,7 +11,8 @@ $this->formModel->
 form functions()
 display()
 
-
+check for valid user
+	if($this->formModel->check_user('factors',$factor_id,'id')){}
 
 /*
 add send multipart file 
@@ -33,3 +34,6 @@ add adress validation
 remove item from basket review_factor (user id chack shavad)
 add address to factor (user id check shavad)
 modal to review_factor
+
+
+echo hash('sha256',$timestamp);

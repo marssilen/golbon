@@ -8,10 +8,7 @@ class Login extends Controller
 	public function run($name='')
 	{
 		if($this->formModel->run()){
-			//  ;
-
 			echo '{ "st": "logged" }';
 		};
 	}
-
 }

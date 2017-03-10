@@ -56,11 +56,11 @@ foreach($data as $item){
 
 </div>
 
-</form>
+<!-- </form> -->
 </div>
 
 <div  class="w3-container">
-<form action="">
+<!-- <form action=""> -->
 <p>
 ارسال به:
 <br>

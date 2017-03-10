@@ -43,13 +43,13 @@ $url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER['
 <div class="w3-margin-16 w3-round">
   به اشتراک بگذارید
   <p>
-  <a class="" href="https://t.me/share/url?url=<?= $url ?>&text=Golbon">
+  <a target="_blank" href="https://t.me/share/url?url=<?= $url ?>&text=Golbon">
   <img src="<?= URL ?>public/t.png" width="50" height="50" class="w3-circle">
   </a>
-  <a class="" href="https://twitter.com/home?status=<?= $url ?>">
+  <a target="_blank" href="https://twitter.com/home?status=<?= $url ?>">
   <img src="<?= URL ?>public/twitter.jpg" width="50" height="50" class="w3-circle">
   </a>
-  <a class="" href="https://www.facebook.com/sharer.php?u=<?= $url ?>">
+  <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= $url ?>">
     <img src="<?= URL ?>public/face.png" width="50" height="50" class="w3-circle">
   </a>
   </p>
@@ -70,71 +70,7 @@ function show_modal(src){
 }
 </script>
 
- <script>
-$(function(){
-  $('#buy_btn').on('click',buy);
-  $('#fav_btn').on('click',fav);
-  $('#login_btn').on('click',login);
 
-  function msg(message,type){
-    var msg_obj = jQuery.parseJSON(message);
-    if( msg_obj.st === "please login" ){
-      // alert(msg_obj.st);
-      $("#login_modal").show();
-    }
-    if( msg_obj.st === "please login" ){
-      // alert(msg_obj.st);
-      $("#login_modal").show();
-    }
-    // added to basket
-    if( msg_obj.st === "added to basket" ){
-      alert("به سبد خرید اضافه شد");
-    }
-    if( msg_obj.st === "added to favorites" ){
-      alert("به لیست اضافه شد");
-    }
-    if( msg_obj.st === "logged" ){
-      $.ajax({url: "<?= URL ?>ajax/header", success: function(result){
-        $("#l_header").html(result);
-        $("#login_modal").hide();
-      }});
-      // location.reload();
-    }
-    // $('#msg').html(msg_obj.st);
-    // $('#msgbox').slideDown(500);
-  }
-  function login(){
-
-    var data=$('#login_form').serialize();
-    url='<?= URL ?>/login/run';
-    ajax(url,data);
-
-  }
-  function buy(){
-    var data=$('#form').serialize();
-    url='sf';
-    ajax(url,data);
-  }
-  function fav(){
-    var data=$('#form').serialize();
-    url='add_to_favorite';
-    ajax(url,data);
-  }
-  function ajax(url,data){
-
-    $.post(url,data,function(da){
-      msg(da,1);
-    }).done(function(){
-      // msg("done",1)
-    }).fail(function(){
-      msg("fail",2);
-    });
-  }
-   $("#columnTwo").height($("#columnOne").height());
-   var a=$("#columnOne").height();
-		//alert(a);
-});
-</script>
 
 
 

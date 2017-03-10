@@ -4,7 +4,11 @@ class Item extends Controller
 	public function index($name='')
 	{
 		$data=$this->formModel->get($name);
-		$this->view('item/index',$data[0]);
+		if(isset($data[0])){
+			$this->view('item/index',$data[0]);
+		}else {
+			header('location:'.URL);
+		}
 	}
 	// public function get($name='')
 	// {
@@ -12,19 +16,19 @@ class Item extends Controller
 	// }
 	public function sf()
 	{
-		// if(isset($_POST['submit'])){
+
 			if($this->is_login){
-			$name=$_POST['id'];
-				$user_id= Session::get('id');
-				$factor_id=$this->formModel->get_factor($user_id);
+				$name=$_POST['id'];
+				$factor_id=$this->formModel->get_factor();
 				$factor_id=Session::get('factor_id');
 				$num=1;
 				$this->formModel->add_item_to_factor($factor_id,$name,$num);
-				echo '{ "st": "added to basket" }';
+				$tedad=$this->formModel->count_items_in_basket($factor_id);
+				echo '{ "st": "added to basket" ,"tedad":"'.$tedad.'"}';
 			}else {
 				echo '{ "st": "please login" }';
 			}
-		// }
+
 	}
   public function add_to_favorite() {
 		if($this->is_login){

@@ -27,7 +27,7 @@
 </div>
 </div>
 <!--  -->
-<div  class="container ">
+<div class="container ">
   <!--  -->
   <!-- <div class="w3-row">
 
@@ -111,7 +111,7 @@
 </div>
 </div>
 <!--  -->
-<div  class="container ">
+<div  class="container" id="about">
   <div class="w3-row">
     <h3>
       درباره ی ما

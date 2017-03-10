@@ -83,14 +83,22 @@ class Cp extends ControllerPanel
 	}
   function factor_show($factor_id){
 		//$user_id= Session::get('id');
-  	$req=array('pay');
-		$data=$this->formModel->show_my_factor($factor_id);
-		$this->view('cp/show_factor',$data);
+// check table ,userid
+		if($this->formModel->check_user('factors',$factor_id,'id')){
+			$req=array('pay');
+			$data=$this->formModel->show_my_factor($factor_id);
+			$this->view('cp/show_factor',$data);
+		}else{
+			header('location:'.URL.'cp');
+		}
+
 	}
 
-	function factor_review($factor_id){
-		//$user_id= Session::get('id');
+	function factor_review(){
 
+
+		//$user_id= Session::get('id');
+		$factor_id= $this->formModel->get_factor();
     // print_r($_POST);
     $req=array('sel');
     //item hay sel vojood dashte bashad
@@ -101,7 +109,13 @@ class Cp extends ControllerPanel
 	    $this->formModel->change_item_numbers($item,$value,$factor_id);
 	    }
     }
-    //$price=$this->formModel->set_final_factor($factor_id);
+		if (form::check($_POST, array('pay'))){
+			echo 'pay now';
+			echo $_POST['address'];
+			$price=$this->formModel->set_final_factor($factor_id,$_POST['address']);
+			die();
+    }
+
     $data=$this->formModel->show_my_factor($factor_id);
 		$this->view('cp/review_factor',$data);
 	}
@@ -119,25 +133,24 @@ class Cp extends ControllerPanel
 
 	}
 
-        function shipping(){
-            //$data=$this->formModel->show_my_factor($factor_id);
-            $data=array();
-            $this->view('cp/shipping',$data);
-        }
-        function add_address(){
-            $req=array('name','c-phone','s-phone','province','city','address','postal-code','submit');
-            if(form::check($_POST, $req,TRUE)){
-                // if(form::check_type('siiiisis',$_POST)){
-                   $user_id= Session::get('id');
-                   $this->formModel->add_address($user_id,$_POST);
-                // }
-            }else {
-            	echo "no";
-            }
-
-            $data=array();
-            $this->view('cp/address_add',$data);
-        }
+function shipping(){
+	//$data=$this->formModel->show_my_factor($factor_id);
+	$data=array();
+	$this->view('cp/shipping',$data);
+}
+function add_address(){
+	$req=array('name','c-phone','s-phone','province','city','address','postal-code','submit');
+	if(form::check($_POST, $req,TRUE)){
+		// if(form::check_type('siiiisis',$_POST)){
+		$user_id= Session::get('id');
+		$this->formModel->add_address($user_id,$_POST);
+		// }
+	}else {
+		echo "no";
+	}
+	$data=array();
+	$this->view('cp/address_add',$data);
+}
         function purchased(){
             $data=$this->formModel->get_purchased();
             $this->view('cp/purchased',$data,true);

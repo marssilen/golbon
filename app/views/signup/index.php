@@ -27,14 +27,14 @@
     </form>
     </div>
     <div class="w3-col l6 w3-hide-small w3-hide-medium  w3-padding ">
-        <img class="w3-border w3-round" style="width:100%;" src="http://www.w3schools.com/w3css/img_workshop.jpg"/>
+        <img class="w3-border w3-round" style="width:100%;" src="<?= URL ?>public/img_workshop.jpg"/>
     </div>
 </div>
         </div>
-    
 
 
-    
+
+
 <?php //print_r($data);?>
 </body>
 </html>

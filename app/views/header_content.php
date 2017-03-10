@@ -17,10 +17,10 @@
     </p>
     <a href="<?= (($this->is_login)?URL."cp/factor_review/$fid":LINK) ?>" <?= (($this->is_login)?"":LOGIN) ?>
       class="w3-large w3-btn w3-green"><i class="fa fa-shopping-bag"></i>   سبد خرید
-      <span class="w3-margin-2 w3-round w3-tag w3-light-green">
-      <?= ($this->is_login)?"":"" ?>
+      <span class="w3-margin-2 w3-round w3-tag w3-light-green" id="tedad">
+      <?= ($this->is_login)?display($m->count_items_in_basket($fid)):"" ?>
       <?php
-      // display($m->count_items_in_basket($fid));
+
       ?>
     </span>
     </a>

@@ -34,6 +34,11 @@ class Database extends PDO{
 		}
 		$sth->execute();
 	}
+	// public function myquery($sql){
+	// 	if(isset($sql)){
+	// 		$result=$this->db->query($sql);
+	// 	}
+	// }
 	public function delete($table,$where,$limit=1){
 		return $this->exec("DELETE FROM $table WHERE $where LIMIT $limit");
 	}

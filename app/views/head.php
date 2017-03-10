@@ -17,6 +17,7 @@
 <!-- Latest compiled JavaScript -->
 <script src="<?= URL ?>public/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 <script src="<?= URL ?>public/myscript.js"></script>
+<script src="<?= URL ?>public/js/header.js.php"></script>
 <title>فراورده های کنجدی گلبن</title>
 <style>
 </style>
