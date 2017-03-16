@@ -172,8 +172,8 @@ function show_my_factor($factor_id){
 		$this->find_cat_children($id);
 		return $this->stream;
 	}
-    function get_purchased(){
-		$result=$this->db->select("SELECT * FROM purchased");
+    function get_orders(){
+		$result=$this->db->select("SELECT * FROM factors");
 		return $result;
     }
 	function get_order($id){

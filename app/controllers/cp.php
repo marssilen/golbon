@@ -151,10 +151,10 @@ function add_address(){
 	$data=array();
 	$this->view('cp/address_add',$data);
 }
-        function purchased(){
-            $data=$this->formModel->get_purchased();
-            $this->view('cp/purchased',$data,true);
-        }
+function purchased(){
+    $data=$this->formModel->get_orders();
+    $this->view('cp/purchased',$data,true);
+}
         function menu(){
             $req=array('id','menu','parent','href','submit');
             if(form::check($_POST, $req,TRUE)){

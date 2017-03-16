@@ -20,7 +20,7 @@
   <th>جزئیات</th>
 </tr>
 </thead>
-<?php 
+<?php
 foreach($data as $item){
 	?>
 
@@ -35,7 +35,7 @@ foreach($data as $item){
 
 </tr>
 <?php
-	
+
 }
 ?>
 </table>
