@@ -42,4 +42,24 @@ class Database extends PDO{
 	public function delete($table,$where,$limit=1){
 		return $this->exec("DELETE FROM $table WHERE $where LIMIT $limit");
 	}
+	public function pagination($sql,$data=array(),$pageno=1,$rows_per_page = 3,$fetchMode=PDO::FETCH_ASSOC){
+		$lastpage=4;// ceil($numrows/$rows_per_page);
+		$pageno = (int)$pageno;
+		// if ($pageno > $lastpage) {
+		// $pageno = $lastpage;
+		// }
+		if ($pageno < 1) {
+		$pageno = 1;
+		}
+		$limit = 'LIMIT ' .($pageno - 1) * $rows_per_page .',' .$rows_per_page;
+		$sql="$sql $limit";//WHERE id=?
+		$sth=$this->prepare($sql);
+		foreach($data as $key =>$value){
+			echo "string";
+			$sth->bindValue(":$key",$value);
+		}
+		$sth->execute();
+		return $sth->fetchAll($fetchMode);
+	}
+
 }

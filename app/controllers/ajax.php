@@ -48,7 +48,7 @@ $city=$this->model->get_cities($province);
 echo json_encode($city);
 }
 
-	public function index($fun=0,$id=0,$cat=0)
+	public function index($pageno=1,$fun=0,$id=0,$cat=0)
 	{
 		// $cardModel=$this->model;
 		// $count=$cardModel->count();
@@ -58,6 +58,8 @@ echo json_encode($city);
 		// 	$cards[]=new card($card['id'],$card['name'],$card['card_image'],$card['price'],$card['old_price'],'edit_item/'.$card['id']);
 		// }
 		// $this->view('card/index',['row'=>$count,'cards'=>$cards]);
+
+		$this->formModel->sh($pageno);
 	}
 	public function cat()
 	{

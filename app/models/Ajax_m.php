@@ -10,6 +10,11 @@ class Ajax_m extends Model
 		$result=$this->db->query($sql);
 		return $result->rowCount();
 	}
+	function sh($pageno){
+		echo '<pre>';
+		$sql='SELECT id,name FROM items WHERE id<:ids';
+		print_r($this->db->pagination($sql,array('ids'=>10),$pageno,3));
+	}
 	function show($fun=0,$id=0,$cat=0){
 		if($fun==0)
 		//ORDER BY id DESC
