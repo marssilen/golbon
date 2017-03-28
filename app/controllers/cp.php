@@ -151,6 +151,17 @@ function add_address(){
 	$data=array();
 	$this->view('cp/address_add',$data);
 }
+function address(){
+	$data=$this->formModel->get_address();
+	print_r($data);
+	$this->view('cp/my_address',$data);
+}
+function address_detail($id){
+	// validate id
+	$data=$this->formModel->get_address_detail($id);
+	print_r($data);
+	$this->view('cp/address_detail',$data);
+}
 function purchased(){
     $data=$this->formModel->get_orders();
     $this->view('cp/purchased',$data,true);

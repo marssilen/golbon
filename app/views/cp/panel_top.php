@@ -94,7 +94,7 @@ $('.mother').click(function(e) {
                   <li><a href="<?= display(URL) ?>cp/my_comments">نظرات من</a></li>
                   <li><a href="<?= display(URL) ?>cp/#">پیام پشتیبانی</a></li>
                   <li><a href="<?= display(URL) ?>cp/profile">پروفایل من</a></li>
-                  <li><a href="<?= display(URL) ?>cp/add_address">آدرس های من</a></li>
+                  <li><a href="<?= display(URL) ?>cp/address">آدرس های من</a></li>
                 </ul>
             </li>
         </ul>

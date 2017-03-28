@@ -28,6 +28,16 @@ class Cp_m extends Model
                     ));
 
 	}
+	function get_address(){
+		$user_id= Session::get('id');
+		return $this->db->select('select id,name,c_phone,s_phone,postal_code from address where user_id=:user_id and disable=0',array('user_id'=>$user_id));
+	}
+	function get_address_detail($id){
+		$user_id=Session::get('id');
+		if(isset($this->db->select('select * from address where id=:id and user_id=:user_id and disable=0',array('id'=>$id,'user_id'=>$user_id))[0]))
+		return $this->db->select('select * from address where id=:id and user_id=:user_id and disable=0',array('id'=>$id,'user_id'=>$user_id))[0];
+		header('location:'.URL);
+	}
 	function get_all_id(){
 		$result=$this->db->select("SELECT id FROM items ");
 		return $result;
