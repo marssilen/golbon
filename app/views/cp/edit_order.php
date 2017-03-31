@@ -1,72 +1,65 @@
+
+<br>
+
+
+<div class="w3-white container center" >
+<div class="w3-row">
+<div class="w3-card-2"><!--left images-->
+<div class="w3-responsive">
+
+
+
+<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+<thead>
+<tr class="w3-light-grey">
+  <th>محصول</th>
+  <th>تعداد</th>
+  <th>قیمت واحد </th>
+  <th>قیمت کل</th>
+  <!--<th>تخفیف کل</th>-->
+  <!--<th>مبلغ کل</th>-->
+</tr>
+</thead>
 <?php
-$username="ramin";
+$factor_price=0;
+foreach($data as $item){
+    $last_price=$item['price']*$item['num'];//-$item['barging'];
+    $factor_price+=$last_price;
+	?>
+<tr>
+  <td><a href="<?= URL.'item/'.$item['item_id'] ?>"><?= $item['name'] ?></a></td>
+  <td><?=$item['num'] ;?></td>
+  <td><?= $item['price'] ?></td>
+  <td><?= $item['price']*$item['num'] ?></td>
+  <!--<td><?= /*$item['barging']*/NULL ?></td>-->
+  <!--<td><?= /*$last_price*/NULL ?></td>-->
+</tr>
+<?php
+
+}
 ?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Edit User</title>
-</head>
-<body>
-<div class="container">
-  <h2>Horizontal form with static control</h2>
-  <form class="form-horizontal" role="form" method="post" action="">
-  <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">username:</label>
-      <div class="col-sm-10">          
-        <p class="form-control-static"><?= (isset($data['username']))?$data['username']:'' ?></p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Email:</label>
-      <div class="col-sm-10">
-        <input name="email" type="email" class="form-control" placeholder="Enter email" value="<?= (isset($data['email']))?$data['email']:'' ?>">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Password:</label>
-      <div class="col-sm-10">          
-        <input name="pass" type="password" class="form-control" id="pwd" placeholder="Enter password" value="<?= (isset($data['password']))?$data['password']:'' ?>">
-      </div>
-    </div>
-     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">phone:</label>
-      <div class="col-sm-10">          
-        <input name="tel" type="tel" class="form-control" id="pwd" placeholder="" value="<?= (isset($data['phone']))?$data['phone']:'' ?>">
-      </div>
-    </div>
-     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">address:</label>
-      <div class="col-sm-10">          
-        <textarea name="add" class="form-control" id="pwd" placeholder="Enter address"><?= (isset($data['address']))?$data['address']:'' ?></textarea>
-      </div>
-    </div>
-    
-     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">role:</label>
-      <div class="col-sm-10">          
-      <select name="role" class="form-control" id="sel1">
-        <option <?=(isset($data['role']) and $data['role']=='admin')?'selected':'' ?> >admin</option>
-        <option <?=(isset($data['role']) and $data['role']=='standard')?'selected':'' ?> >standard</option>
-      </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2">block:</label>
-      <div class="col-sm-10">          
-      <select name="block" class="form-control" id="sel1">
-        <option <?=(isset($data['block']) and $data['block']=='1')?'selected':'' ?> value="1" >true</option>
-        <option <?=(isset($data['block']) and $data['block']=='0')?'selected':'' ?> value="0" >false</option>
-      </select>
-      </div>
-    </div>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <button name="sub" value="submit" type="submit" class="btn btn-default">Submit</button>
-      </div>
-    </div>
-  </form>
- 
-  
-</body>
-</html>
+
+</table>
+    <P class="w3-right w3-margin-16">مبلغ فاکتور:<?= $factor_price ?></P>
+    <!-- <pre>
+    <?php
+    // print_r($data);
+    ?>
+  </pre> -->
+</div>
+<address class="">
+  address:<?= $data[0]['address']?>
+</address>
+<form action="" method="post">
+  <select name="status">
+  <?php
+  foreach ($GLOBALS['sta_array'] as $key => $value) {
+   ?>
+  <option value="<?=key?>" <?php if($data[0]['status']==$key)echo 'selected'?> ><?=$value?></option>
+  <?php } ?>
+  </select>
+  <input type="submit" value="تغییر وضعیت" name="submit"/>
+</form>
+</div>
+</div>
+</div>

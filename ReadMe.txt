@@ -24,9 +24,8 @@ price cant be zero
 prevent showing factors of other users
 prevent fake item ids to load in basket
 
-ممانعت از دیده شدن فاکتورهای موجود در سبد خرید در سمت 
-facor_show
-my_orders
+
+
 
 radio button address select in review_factor
 basket count chek out
@@ -42,3 +41,17 @@ modal to review_factor
 
 
 echo hash('sha256',$timestamp);
+
+
+enum{
+status
+}
+pagination bar
+
+آدرس استان و شهر در فیلد آدرس قرار بگیرد
+
+security in->
+	delete_item
+	add_item
+
+اگر فاکتور خریداری شده باشد امکان حذف آیتم از فاکتور نباشد

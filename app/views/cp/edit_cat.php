@@ -1,4 +1,4 @@
-<form method="post">
+<form method="POST" action="">
 <label for="cat"><?php echo $data['id']; ?></label>
 <input name="cat" value="<?php echo $data['cat']; ?>">
 <input name="pa" value="<?php echo $data['pa_cat']; ?>">

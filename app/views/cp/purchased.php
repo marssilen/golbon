@@ -4,7 +4,6 @@
 <div class="w3-row">
 <div class="w3-card-2"><!--left images-->
 <div class="w3-responsive">
-<form method="post" action="">
 <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
 <thead>
 <tr class="w3-light-grey">
@@ -22,16 +21,7 @@ foreach($data as $item){
   <td><?= $item['id'] ?></td>
   <td><?= $item['user_id'] ?></td>
   <td>
-    <?php
-    $status= array('0'=>0,'1' =>1 ,'2'=>2,'3'=>3,'4'=>4,'5'=>5 );
-    ?>
-    <select onchange="this.form.submit()" name="sel[<?= $item['id'] ?>]">
-    <?php foreach($status as $sta => $val){
-    ?>
-    <option value="<?php echo $sta; ?>" <?php if($sta==$item['status'])echo 'selected' ?> ><?= $val ?></option>
-    <?php }?>
-    </select>
-
+  <?=$GLOBALS['sta_array'][$item['status']]?>
   </td>
   <td><?= $item['factor_id'] ?></td>
   <td><a href="<?= URL.'cp/edit_order/'.$item['id'] ?>">view<a></td>
@@ -41,7 +31,6 @@ foreach($data as $item){
 }
 ?>
 </table>
-</form>
 </div>
 
 </div>

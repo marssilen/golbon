@@ -70,7 +70,7 @@ $('.mother').click(function(e) {
             <li>
                 <a class="mother" href="#">Desktop <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionOneLinks">
-                  <li><a href="<?= display(URL) ?>cp/index"><span class="glyphicon glyphicon-th"></span> Items</a></li>
+                  <li><a href="<?= display(URL) ?>cp/items/"><span class="glyphicon glyphicon-th"></span> Items</a></li>
                   <li><a href="<?= display(URL) ?>cp/show_cat"><span class="glyphicon glyphicon-list"></span> Categories</a></li>
                   <li><a href="<?= display(URL) ?>cp/s"><span class="glyphicon glyphicon-picture"></span> Files</a></li>
                   <li><a href="<?= display(URL) ?>cp/purchased"><span class="glyphicon glyphicon-shopping-cart"></span> Orders</a></li>

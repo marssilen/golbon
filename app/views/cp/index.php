@@ -3,10 +3,10 @@
 <div class="w3-row">
 
 <div class="" align="center"><!--left images-->
-<a class="btn btn-info w3-margin-16" href="<?= URL ?>cp/add_item">Add new Item</a>
+<a class="btn btn-info w3-margin-16" href="<?= URL ?>cp/add_item">افزودن کالا</a>
 <form action="<?= URL.'cp/search_item/'?>" method="POST">
-<input name="search" type="text" placeholder="Insert id, name or tag">
-<button type="submit" class="btn btn-info w3-margin-16">Search</button>
+<input name="search" type="text" placeholder="آیدی،نام،تگ">
+<button type="submit" class="btn btn-info w3-margin-16">جستجو</button>
 </form>
 <!--start -->
 
@@ -48,12 +48,7 @@ app.controller('myCtrl', function($scope) {
 <!--end -->
 
 <div align="center">
-<ul class="pagination">
-
-<?php for($i=1;$i<=$data['pages'];$i++){ ?>
-  <li <?php if($i==$data['current_page'])echo 'class="active"'?> ><a href="<?= URL.'cp/'.$i ?>"><?= $i ?></a></li>
-<?php } ?>
-</ul>
+<?= $data['pview'] ?>
 
 </div>
 
