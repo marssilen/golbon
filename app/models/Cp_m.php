@@ -78,7 +78,11 @@ function show_factor($factor_id){
 }
 function show_f($factor_id){
 	$sql="SELECT factors.*,
-	address.address,
+	address.name as aname,
+	address.s_phone,
+	address.c_phone,
+	address.postal_code,
+	address.address as faddress,
 	purchased.id,purchased.item_id,purchased.num,purchased.price,
 	items.name
 	FROM factors inner join address on address.id=factors.address,
@@ -222,6 +226,9 @@ function get_user($id){
 $result=$this->db->select("SELECT * FROM userlist WHERE id=:ids",array('ids'=>$id));
 return $result;
 }
+function set_status($post,$factor_id){
+	$this->db->update("factors",array("status"=>$post['status']),'id='.$factor_id);
+}
 function get_profile($id){
 $result=$this->db->select("SELECT * FROM profile WHERE user_id=:ids",array('ids'=>$id));
 //print_r($result);
@@ -239,6 +246,5 @@ function get_comments($verified){
 $result=$this->db->select("SELECT * FROM comments WHERE verified=:verified"
 ,array('verified' =>$verified));
 return $result;
-
 }
 }

@@ -5,6 +5,8 @@
 <div class="w3-white container center" >
 <div class="w3-row">
 <div class="w3-card-2"><!--left images-->
+  <?php if(isset($data[0])){?>
+
 <div class="w3-responsive">
 
 
@@ -41,25 +43,36 @@ foreach($data as $item){
 
 </table>
     <P class="w3-right w3-margin-16">مبلغ فاکتور:<?= $factor_price ?></P>
-    <!-- <pre>
+    <pre>
     <?php
-    // print_r($data);
+    print_r($data);
     ?>
-  </pre> -->
+  </pre>
 </div>
 <address class="">
-  address:<?= $data[0]['address']?>
+  address:<?= $data[0]['faddress']?><br>
+  postal_code:<?= $data[0]['postal_code']?><br>
+  name:<?= $data[0]['aname']?><br>
+  phone:<?= $data[0]['s_phone']?><br>
+  cphone:<?= $data[0]['c_phone']?><br>
+  date:<?= $data[0]['date']?><br>
+  factor_price:<?= $data[0]['factor_price']?><br>
 </address>
 <form action="" method="post">
   <select name="status">
   <?php
   foreach ($GLOBALS['sta_array'] as $key => $value) {
    ?>
-  <option value="<?=key?>" <?php if($data[0]['status']==$key)echo 'selected'?> ><?=$value?></option>
+  <option value="<?=$key?>" <?php if($data[0]['status']==$key)echo 'selected'?> ><?=$value?></option>
   <?php } ?>
   </select>
   <input type="submit" value="تغییر وضعیت" name="submit"/>
 </form>
+<?php
+}else {
+  echo "موردی یافت نشد";
+}
+?>
 </div>
 </div>
 </div>

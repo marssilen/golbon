@@ -160,8 +160,12 @@ $this->view('cp/edit_user',$data,true);
 }
 function edit_order($factor_id){
 	if(isset($factor_id)){
-	$data=$this->formModel->show_f($factor_id);
-	$this->view('cp/edit_order',$data);
+		$req=array('status','submit');
+		if(form::check($_POST,$req,true)){
+			$this->formModel->set_status($_POST,$factor_id);
+		}
+		$data=$this->formModel->show_f($factor_id);
+		$this->view('cp/edit_order',$data);
 	}
 }
 function comments($verified=false){
