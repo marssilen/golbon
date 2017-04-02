@@ -64,14 +64,19 @@ return $id_name_and_tag;
 }
 
 function get_my_orders(){
-$result=$this->db->select("SELECT id,status,factor_id,date,factor_price FROM factors where user_id=:user_id",array('user_id'=>Session::get('id')));
+$result=$this->db->select("SELECT id,status,factor_id,date,factor_price FROM factors where user_id=:user_id and status>0",array('user_id'=>Session::get('id')));
 return $result;
 }
 function show_factor($factor_id){
 	$sql="SELECT purchased.id,purchased.item_id,purchased.num,purchased.price,items.name
 	FROM purchased INNER JOIN items ON items.id=purchased.item_id where factor_id=$factor_id";
-	//$sql="SELECT purchased.id, items.name, factors.code, factors.status, purchased.user_id
-	//FROM purchased,factors and factors INNER JOIN items ON purchased.item_id=items.id WHERE user_id=$user_id ORDER BY id DESC";// LIMIT $limit ";//
+	$result=$this->db->query($sql);
+	$result->setFetchMode(PDO::FETCH_ASSOC);
+	return $result->fetchAll();
+}
+function show_factor_main($factor_id){
+	$sql="SELECT *
+	FROM factors INNER JOIN address ON factors.address=address.id where factors.id=$factor_id";
 	$result=$this->db->query($sql);
 	$result->setFetchMode(PDO::FETCH_ASSOC);
 	return $result->fetchAll();

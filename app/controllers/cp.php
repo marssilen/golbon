@@ -164,7 +164,7 @@ function edit_order($factor_id){
 		if(form::check($_POST,$req,true)){
 			$this->formModel->set_status($_POST,$factor_id);
 		}
-		$data=$this->formModel->show_f($factor_id);
+		$data=array('items'=>$this->formModel->show_factor($factor_id),'factor'=>$this->formModel->show_factor_main($factor_id));
 		$this->view('cp/edit_order',$data);
 	}
 }
@@ -202,7 +202,8 @@ $this->view('cp/profile',$data);
 }
 function factor_show($factor_id){
 if($this->formModel->check_user('factors',$factor_id,'id')){
-$data=$this->formModel->show_factor($factor_id);
+	$data=array('items'=>$this->formModel->show_factor($factor_id),'factor'=>$this->formModel->show_factor_main($factor_id));
+// $data=$this->formModel->show_factor($factor_id);
 $this->view('cp/show_factor',$data);
 }else{
 header('location:'.URL.'cp');

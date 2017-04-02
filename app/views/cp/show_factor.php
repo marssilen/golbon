@@ -4,7 +4,9 @@
 
 <div class="w3-white container center" >
 <div class="w3-row">
-<div class="w3-card-2"><!--left images-->
+<div class="w3-card-2  w3-round mycontainer">
+  <?php if(isset($data['items'])){?>
+
 <div class="w3-responsive">
 
 
@@ -20,9 +22,9 @@
   <!--<th>مبلغ کل</th>-->
 </tr>
 </thead>
-<?php 
+<?php
 $factor_price=0;
-foreach($data as $item){
+foreach($data['items'] as $item){
     $last_price=$item['price']*$item['num'];//-$item['barging'];
     $factor_price+=$last_price;
 	?>
@@ -35,15 +37,37 @@ foreach($data as $item){
   <!--<td><?= /*$last_price*/NULL ?></td>-->
 </tr>
 <?php
-	
+
 }
 ?>
 
 </table>
     <P class="w3-right w3-margin-16">مبلغ فاکتور:<?= $factor_price ?></P>
+    <!-- <pre> -->
+    <?php
+    // print_r($data);
 
+    convert_to_shamsi($data['factor'][0]['date']);
+    ?>
+  <!-- </pre> -->
 </div>
-
+<address class="w3-yellow w3-round w3-margin-4 mycontainer">
+  آیدی فاکتور:<?= $data['factor'][0]['id']?><br>
+  شماره فاکتور:<?= $data['factor'][0]['factor_id']?><br>
+  نام:<?= $data['factor'][0]['name']?><br>
+  آدرس:<?= $data['factor'][0]['address']?><br>
+  کد پستی:<?= $data['factor'][0]['postal_code']?><br>
+  تلفن منزل:<?= $data['factor'][0]['s_phone']?><br>
+  تلفن همراه:<?= $data['factor'][0]['c_phone']?><br>
+  تاریخ:<?= $data['factor'][0]['date']?><br>
+  مصادف با:<?= convert_to_shamsi($data['factor'][0]['date']) ?><br>
+  مبلغ درج شده در فاکتور:<?= $data['factor'][0]['factor_price']?><br>
+</address>
+<?php
+}else {
+  echo "موردی یافت نشد";
+}
+?>
 </div>
 </div>
 </div>

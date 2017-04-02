@@ -4,8 +4,8 @@
 
 <div class="w3-white container center" >
 <div class="w3-row">
-<div class="w3-card-2"><!--left images-->
-  <?php if(isset($data[0])){?>
+<div class="w3-card-2  w3-round mycontainer">
+  <?php if(isset($data['items'])){?>
 
 <div class="w3-responsive">
 
@@ -24,7 +24,7 @@
 </thead>
 <?php
 $factor_price=0;
-foreach($data as $item){
+foreach($data['items'] as $item){
     $last_price=$item['price']*$item['num'];//-$item['barging'];
     $factor_price+=$last_price;
 	?>
@@ -43,27 +43,32 @@ foreach($data as $item){
 
 </table>
     <P class="w3-right w3-margin-16">مبلغ فاکتور:<?= $factor_price ?></P>
-    <pre>
+    <!-- <pre> -->
     <?php
-    print_r($data);
+    // print_r($data);
+
+    convert_to_shamsi($data['factor'][0]['date']);
     ?>
-  </pre>
+  <!-- </pre> -->
 </div>
-<address class="">
-  address:<?= $data[0]['faddress']?><br>
-  postal_code:<?= $data[0]['postal_code']?><br>
-  name:<?= $data[0]['aname']?><br>
-  phone:<?= $data[0]['s_phone']?><br>
-  cphone:<?= $data[0]['c_phone']?><br>
-  date:<?= $data[0]['date']?><br>
-  factor_price:<?= $data[0]['factor_price']?><br>
+<address class="w3-yellow w3-round w3-margin-4 mycontainer">
+  آیدی فاکتور:<?= $data['factor'][0]['id']?><br>
+  شماره فاکتور:<?= $data['factor'][0]['factor_id']?><br>
+  نام:<?= $data['factor'][0]['name']?><br>
+  آدرس:<?= $data['factor'][0]['address']?><br>
+  کد پستی:<?= $data['factor'][0]['postal_code']?><br>
+  تلفن منزل:<?= $data['factor'][0]['s_phone']?><br>
+  تلفن همراه:<?= $data['factor'][0]['c_phone']?><br>
+  تاریخ:<?= $data['factor'][0]['date']?><br>
+  مصادف با:<?= convert_to_shamsi($data['factor'][0]['date']) ?><br>
+  مبلغ درج شده در فاکتور:<?= $data['factor'][0]['factor_price']?><br>
 </address>
 <form action="" method="post">
   <select name="status">
   <?php
   foreach ($GLOBALS['sta_array'] as $key => $value) {
    ?>
-  <option value="<?=$key?>" <?php if($data[0]['status']==$key)echo 'selected'?> ><?=$value?></option>
+  <option value="<?=$key?>" <?php if($data['factor'][0]['status']==$key)echo 'selected'?> ><?=$value?></option>
   <?php } ?>
   </select>
   <input type="submit" value="تغییر وضعیت" name="submit"/>

@@ -30,8 +30,8 @@ foreach($data as $item){
   <td><?= $item['factor_id'] ?></td>
   <td><?= $item['date'] ?></td>
   <td><?= $item['factor_price'] ?></td>
-  <td><?= ($item['status']=='sent')?'ارسال شده':'معلق' ?></td>
-  <td><a href="factor_show/<?= $item['id'] ?>">*</a></td>
+  <td><?= $GLOBALS['sta_array'][$item['status']] ?></td>
+  <td><a href="factor_show/<?= $item['id'] ?>">مشاهده</a></td>
 
 </tr>
 <?php
