@@ -1,6 +1,11 @@
 <?php
 class Cp extends ControllerPanel
 {
+	function view($page,$data=array(),$secure=false){
+	parent::view('cp/panel_top');
+	parent::view($page,$data,$secure);
+	parent::view('cp/panel_down');
+	}
 function logout(){
 Session::destroy();
 header('location: '.URL.'login');
@@ -244,10 +249,10 @@ function my_favorites(){
 $data=$this->formModel->get_my_favorites();
 $this->view('cp/my_favorites',$data);
 }
-function view($page,$data=array(),$secure=false){
-parent::view('cp/panel_top');
-parent::view($page,$data,$secure);
-parent::view('cp/panel_down');
+function address_remove($id){
+	$this->formModel->remove_address($id);
+	 header('location: '.URL.'cp/address');
 }
+
 
 }

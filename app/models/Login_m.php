@@ -5,7 +5,7 @@ class Login_m extends Model
 		parent::__construct();
 	}
 	public function run(){
-			echo hash('sha256',$timestamp);
+			// echo hash('sha256',$timestamp);
 		if(isset($_POST['username']) and isset($_POST['password']))
 		{
 			if($_POST['username']!='' and $_POST['password']!=''){
@@ -33,7 +33,7 @@ class Login_m extends Model
 					Session::set('role',$sth[0]['role']);
 					Session::set('start',time());
 					return true;
-					// header('location: '.URL.'/cp/');
+					// header('location: '.URL.'cp/');
                                         //ok let's change this file
 					//header('location: run');
 				}else{

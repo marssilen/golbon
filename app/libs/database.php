@@ -11,17 +11,24 @@ class Database extends PDO{
 		$sth->execute();
 		return $sth->fetchAll($fetchMode);
 	}
-	public function insert($table,$data){
+	public function insert($table,$data,$html=true){
 		ksort($data);
 		$fieldNames=implode("`, `",array_keys($data));
 		$fieldValues=':'.implode(', :',array_keys($data));
 		$sth=$this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
-		foreach($data as $key =>$value){
-			$sth->bindValue(":$key",$value);
+		if($html){
+			foreach($data as $key =>$value){
+				$sth->bindValue(":$key",htmlentities($value));
+			}
+		}else{
+			foreach($data as $key =>$value){
+				$sth->bindValue(":$key",$value);
+			}
 		}
+
 		$sth->execute();
 	}
-	public function update($table,$data,$where){
+	public function update($table,$data,$where,$html=true){
 		ksort($data);
 		$fieldDetails=NULL;
 		foreach($data as $key =>$value){
@@ -29,8 +36,14 @@ class Database extends PDO{
 		}
 		$fieldDetails=rtrim($fieldDetails,',');
 		$sth=$this->prepare("UPDATE $table SET $fieldDetails WHERE $where");
-		foreach($data as $key =>$value){
-			$sth->bindValue(":$key",$value);
+		if($html){
+			foreach($data as $key =>$value){
+				$sth->bindValue(":$key",htmlentities($value));
+			}
+		}else{
+			foreach($data as $key =>$value){
+				$sth->bindValue(":$key",$value);
+			}
 		}
 		$sth->execute();
 	}

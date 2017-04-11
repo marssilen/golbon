@@ -41,6 +41,10 @@ function get_address(){
 $user_id= Session::get('id');
 return $this->db->select('select id,name,c_phone,s_phone,postal_code from address where user_id=:user_id and disable=0',array('user_id'=>$user_id));
 }
+function remove_address($id){
+	$user_id= Session::get('id');
+	$this->db->update("address",array('disable'=>1),'user_id='.$user_id.' AND id='.$id,false);
+}
 function get_address_detail($id){
 $user_id=Session::get('id');
 if(isset($this->db->select('select * from address where id=:id and user_id=:user_id and disable=0',array('id'=>$id,'user_id'=>$user_id))[0]))
