@@ -6,10 +6,13 @@ class Edit_item extends ControllerPanel
 	private function check_id($id){
 		if(!isset($id)){
 			header("Location: ../cp/");
+			die();
 		}
 		if(!is_numeric($id)){
 			header("Location: ../cp/");
+			die();
 		}
+
 	}
 	public function index($id)
 	{
@@ -23,9 +26,12 @@ class Edit_item extends ControllerPanel
 				  echo $e->getMessage();
 			}
 		}
-		$count=$formModel->count();
-		$data=$formModel->show($id);;
-		$this->view('edit_item/index',$data);
+		$data=$formModel->show($id);
+		if(!isset($data[0])){
+			header("Location: ../cp/");
+		}
+		$data[0]['image']=$formModel->get_images($id);
+		$this->view('edit_item/index',$data[0]);
 	}
 
 	function add_image($id){
@@ -95,10 +101,10 @@ class Edit_item extends ControllerPanel
 		header("Location: ../");
 
 	}
-	function delete_pic($id,$name){
+	function delete_pic($id,$image_id){
 		$this->check_id($id);
 		$formModel=$this->model('Edit_item_m');
-		print_r( $formModel->delete_pic($id,$name));
+		print_r( $formModel->delete_pic($image_id));
 		header("Location: ../$id");
 	}
 

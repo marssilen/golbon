@@ -36,9 +36,16 @@ $url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER['
 </p>
 <div class="w3-center w3-red"><img style="width:100%" src="<?= URL.'public/upload/'.$data['card_image']?>"  /></div>
 <div class=" w3-padding-8" style="margin-top:20px">
-    <img onclick="show_modal('<?= URL.'public/upload/a_22.png'?>')" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
-    <img onclick="show_modal('<?= URL.'public/upload/a_10.jpg'?>')" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
-    <img onclick="show_modal('<?= URL.'public/upload/a_11.jpg'?>')" src="<?= URL.'public/upload/a_22.png'?>" class="w3-hover-opacity" width="50" height="50" />
+<?php
+$images=$data['image'];
+foreach ($images as $image) {
+  // echo $image['image'];
+  // echo $image['id'];
+  // echo $image['image_thumb'];
+  // echo $image['item_id'];
+?>
+    <img onclick="show_modal('<?= URL.'public/upload/'.$image['image']?>')" src="<?= URL.'public/upload/'.$image['image_thumb']?>" class="w3-hover-opacity" width="50" height="50" />
+<?php } ?>
 </div>
 <div class="w3-margin-16 w3-round">
   به اشتراک بگذارید

@@ -1,6 +1,6 @@
 <?php
 //$images=explode(',',$data['image']);
-$images=  json_decode($data['image']);
+$images=  $data['image'];
 ?>
 <?php require_once('app/views/head.php'); ?>
 
@@ -29,19 +29,14 @@ foreach($images as $image){
 	{
 ?>
 <div class=" w3-col m3 s6 " style="padding:2px" >
-
-
 <div class="w3-white w3-border" >
 <div >
-<a href="<?php echo 'delete_pic/'.$data['id'].'/'.$image; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border w3-right w3-margin-4">X</button></a>
+<a href="<?php echo 'delete_pic/'.$image['item_id'].'/'.$image['id']; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border w3-right w3-margin-4">X</button></a>
 </div>
-<a href="<?php echo URL.'public/upload/'.$image; ?>">
-<img src="<?php echo URL.'public/upload/'.$image; ?>" style="width:100%">
+<a href="<?php echo URL.'public/upload/'.$image['image']; ?>">
+<img src="<?php echo URL.'public/upload/'.$image['image']; ?>" style="width:100%">
 </a>
 </div>
-
-
-
 </div>
 <?php
 	}
@@ -179,6 +174,9 @@ echo  $formated_string;
     </header>
     <div class="w3-container">
         <form method="post" enctype="multipart/form-data" action="add_image/<?php echo $data['id'] ?>">
+          <?php
+          echo $data['id'];
+          ?>
         <input name="image" type="file" id="image_upload" >
         <br>
         <button type="submit" name="add_image" class="w3-btn w3-red" style="display:block;width:100%">add</button>

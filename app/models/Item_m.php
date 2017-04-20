@@ -26,6 +26,9 @@ function count_items_in_basket($factor_id){
 		}
 		return $count;
 }
+function get_images($id){
+	return $this->db->select('select * from image where item_id=:item_id',array('item_id'=>$id));
+}
 	function add_item_to_factor($factor_id,$item_id,$num){
     $price=$this->db->select("SELECT price FROM items WHERE id= :item_id LIMIT 1",array('item_id'=>$item_id))[0]['price'];
     $data=$this->db->select("SELECT * FROM purchased WHERE factor_id= :factor_id AND item_id= :item_id LIMIT 1",array('factor_id' => $factor_id,'item_id'=>$item_id));
