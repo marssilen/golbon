@@ -18,14 +18,14 @@ class Login_m extends Model
 						return false;
 						die();
 					}
-          if(!$sth[0]['active']){
-          echo 'active your mail from '.$sth[0]['email'];
-          $message = "Please click on link below to active your account 1\r\n".$sth[0]['ac_url'];
-          $message = wordwrap($message, 70, "\r\n");
-          mail($sth[0]['email'], 'Active your account', $message);
-					return false;
-          die();
-          }
+          // if(!$sth[0]['active']){
+          // echo 'active your mail from '.$sth[0]['email'];
+          // $message = "Please click on link below to active your account 1\r\n".$sth[0]['ac_url'];
+          // $message = wordwrap($message, 70, "\r\n");
+          // mail($sth[0]['email'], 'Active your account', $message);
+					// return false;
+          // die();
+          // }
 					Session::init();
 					Session::set('loggedIn',true);
 					Session::set('id',$sth[0]['id']);

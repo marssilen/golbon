@@ -2,7 +2,7 @@
 class Signup_m extends Model
 {
 
-	
+
 	function __construct(){
 		parent::__construct();
 		/*$sql='SELECT * FROM items';
@@ -19,16 +19,16 @@ class Signup_m extends Model
 			$id=$r[0]['id'];
 			$rr=$this->db->update('userlist',array('active'=>true),"`id`=$id");
 			return true;
-		}	
+		}
 	}
 	public function userInsert($username,$password,$email,$phone,$address){
             $ac_url=md5(rand(0,9999999).md5($username).md5($address));
 		$username=strtolower($username);
 		$this->db->insert('userlist',array('username'=>$username,'password'=>$password,'email'=>$email
 		,'phone'=>$phone,'address'=>$address,'ac_url'=>$ac_url));
-                $message = "Please click on link below to active your account 1\r\n".$ac_url;
-                $message = wordwrap($message, 70, "\r\n");
-                mail($email, 'Active your account', $message);
+                // $message = "Please click on link below to active your account 1\r\n".$ac_url;
+                // $message = wordwrap($message, 70, "\r\n");
+                // mail($email, 'Active your account', $message);
 	}
-	
+
 }

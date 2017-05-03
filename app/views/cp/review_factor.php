@@ -24,6 +24,7 @@
 
 <?php
 $factor_price=0;
+if(count($data)!=0){
 foreach($data as $item){
     $last_price=$item['price']*$item['num'];//-$item['barging'];
     $factor_price+=$last_price;
@@ -45,43 +46,55 @@ foreach($data as $item){
   <!--<td><?= /*$last_price*/NULL ?></td>-->
 </tr>
 <?php
-
+}
+}else{
+  // echo 'No Item';
 }
 ?>
 
 </table>
 <div>
   <p class="w3-right w3-margin-16">مبلق قابل پرداخت: <?= $factor_price ?></p>
-  <input type="submit" name="pay" class="w3-btn w3-green w3-round w3-input" value="پرداخت"/>
-
 </div>
 
 <!-- </form> -->
 </div>
-
 <div  class="w3-container">
+  باربری:
+  <br>
+  <label for="province">استان</label>
+  <select required name="province" class="margin-l right w3-round w3-border w3-border-blue" id="province"><option>انتخاب کنید</option></select>
+  <!-- <br> -->
+  <label for="city">شهر</label>
+  <select required name="city" class="margin-l right w3-round w3-border w3-border-blue" id="city"><option>انتخاب کنید</option></select>
+  <br>
+  <textarea style="width:100%" name="terminal" placeholder="نام ترمینال و دیگر توضیحات"></textarea>
+</div>
+<div  class="w3-container w3-padding-16">
 <!-- <form action=""> -->
-<p>
+<!-- <p>
 ارسال به:
-<br>
+<br> -->
 <?php
-$a=$this->model('address')->get(Session::get('id'));
-$i=true;
-foreach ($a as $var) {
-  echo '<input type="radio" name="address" value="'.$var['id'].'" '.(($i)?'checked':'').'> '.$var['name'].'  '.$var['c_phone'].'  '.$var['address'].'</input><br>';
-  $i=false;
-}
-if(count($a)==0){
-  echo '<b>آدرسی یافت نشد.</b>';
-}
+// $a=$this->model('address')->get(Session::get('id'));
+// $i=true;
+// foreach ($a as $var) {
+//   echo '<input type="radio" name="address" value="'.$var['id'].'" '.(($i)?'checked':'').'> '.$var['name'].'  '.$var['c_phone'].'  '.$var['address'].'</input><br>';
+//   $i=false;
+// }
+// if(count($a)==0){
+//   echo '<b>آدرسی یافت نشد.</b>';
+// }
 ?>
-<br>
+<!-- <br>
 <a href="<?= URL.'cp/add_address'?>" class="w3-btn w3-blue w3-round">
 اضافه کردن آدرس
 </a>
-</p>
-</form>
+</p> -->
+<input type="submit" name="pay" class="w3-btn w3-green w3-round " value="پرداخت"/>
 </div>
+
+</form>
 
 </div>
 </div>

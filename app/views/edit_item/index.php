@@ -18,7 +18,7 @@ $images=  $data['image'];
   <?php require_once('app/views/msgbox.php'); ?>
 <div class="w3-row">
 <div class="w3-col s8" style="padding:15px">
-<div class="w3-card-2"><!--left images-->
+<div class="w3-card-2 w3-round"><!--left images-->
 <div>
 <button style="margin:5px" onclick="document.getElementById('add_image_modal').style.display='block'" class="w3-btn w3-white w3-round w3-border">+</button>
 </div>
@@ -47,7 +47,7 @@ foreach($images as $image){
 
 </div>
 <br>
-<div class="w3-card-2"><!--left-->
+<div class="w3-card-2  w3-round"><!--left-->
 
 
 <form method="post" enctype="multipart/form-data">
@@ -75,31 +75,30 @@ foreach($images as $image){
 </div><!--end left container-->
 
 <div class="w3-col s4" style="padding:15px">
-<div class="w3-card-2">
+<div class="w3-card-2  w3-round">
 
-<img src="<?php if(!empty($data['card_image']))echo URL.'public/upload/'.$data['card_image'];else  echo '../img/default.jpg'?>" style="width:100%">
+<img alt="Insert an image" src="<?php if(!empty($data['card_image']))echo URL.'public/upload/'.$data['card_image'];else  echo '../img/default.jpg'?>" style="width:100%">
 <div class="">
 <center>
-<button onclick="document.getElementById('add_card_image_modal').style.display='block'" class="w3-btn w3-green" style="display:block;width:100%">تغییر</button>
+<button onclick="document.getElementById('add_card_image_modal').style.display='block'" class="w3-btn w3-green round_b" style="display:block;width:100%">تغییر</button>
 </center>
 </div>
 
 </div>
 <br>
 
-<div class="w3-card-2" style="padding:16px">
-
+<div class="w3-card-2  w3-round" >
 <form method="post" enctype="multipart/form-data" action="change_name/<?php echo $data['id'] ?>">
+<div class="w3-padding">
 <label class="w3-label w3-text-blue"><b>نام</b></label>
 <input class="w3-input w3-border w3-round" type="text" name="name"  value="<?php echo $data['name'] ?>">
-<br>
-<button type="submit" name="change_name" class="w3-btn w3-green w3-round w3-right" >تغییر</button>
-<br>
+</div>
+<button type="submit" name="change_name" style="margin-top:15px;" class="w3-btn w3-green w3-input round_b" >تغییر</button>
 </form>
 
 </div>
 <br>
-<div class="w3-card-2">
+<div class="w3-card-2  w3-round">
   <div class="w3-container w3-padding">
 <label class="w3-label w3-text-blue"><b>دسته بندی</b></label>
 <form method="post" enctype="multipart/form-data" action="change_category/<?php echo $data['id'] ?>">
@@ -113,13 +112,13 @@ foreach($this->cats as $option){
 ?>
 </select>
 </div>
-<button type="submit" name="change_category" style="margin-top:15px;" class="w3-btn w3-green w3-input " >تغییر</button>
+<button type="submit" name="change_category" style="margin-top:15px;" class="w3-btn w3-green w3-input round_b" >تغییر</button>
 </form>
 
 </div>
 
 <br>
-<div class="w3-card-2">
+<div class="w3-card-2 w3-round">
 <form method="post" enctype="multipart/form-data" action="change_price/<?php echo $data['id'] ?>">
 <div class="w3-container w3-padding-16">
 <label class="w3-label w3-text-blue"><b>قیمت اصلی</b></label>
@@ -128,13 +127,13 @@ foreach($this->cats as $option){
 <label class="w3-label w3-text-blue"><b>قیمت با تخفیف</b></label>
 <input class="w3-input w3-border w3-round" type="text" name="price"  value="<?php echo $data['price'] ?>">
 </div>
-<button type="submit" name="change_price" style="margin-top:15px;" class="w3-btn w3-green w3-input " >تغییر قیمت</button>
+<button type="submit" name="change_price" style="margin-top:15px;" class="w3-btn w3-green w3-input round_b" >تغییر قیمت</button>
 
 </form>
 
 </div>
 
-<div class="w3-card-2" style="margin-top:10px"><!--tag-->
+<div class="w3-card-2 w3-round" style="margin-top:10px"><!--tag-->
 <div class="w3-container">
 <label class="w3-label w3-text-blue"><b>
 تگ
@@ -148,7 +147,7 @@ $formated_string=str_replace($signs,"",$data['tag']);
 echo  $formated_string;
 ?>"/>
 </div>
-<button type="submit" name="change_tag" style="margin-top:15px;" class="w3-btn w3-green w3-input " >تغییر</button>
+<button type="submit" name="change_tag" style="margin-top:15px;" class="w3-btn w3-green w3-input round_b" >تغییر</button>
 </form>
 </div><!--end tag-->
 

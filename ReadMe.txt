@@ -43,10 +43,6 @@ modal to review_factor
 echo hash('sha256',$timestamp);
 
 
-enum{
-status
-}
-pagination bar
 
 آدرس استان و شهر در فیلد آدرس قرار بگیرد
 
