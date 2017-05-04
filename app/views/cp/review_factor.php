@@ -16,7 +16,7 @@
   <th>تعداد</th>
   <th>قیمت واحد </th>
   <th>قیمت کل</th>
-  <th>ds</th>
+  <th> </th>
   <!--<th>تخفیف کل</th>-->
   <!--<th>مبلغ کل</th>-->
 </tr>
@@ -60,15 +60,9 @@ foreach($data as $item){
 <!-- </form> -->
 </div>
 <div  class="w3-container">
-  باربری:
+  ارسال از طریق باربری:
   <br>
-  <label for="province">استان</label>
-  <select required name="province" class="margin-l right w3-round w3-border w3-border-blue" id="province"><option>انتخاب کنید</option></select>
-  <!-- <br> -->
-  <label for="city">شهر</label>
-  <select required name="city" class="margin-l right w3-round w3-border w3-border-blue" id="city"><option>انتخاب کنید</option></select>
-  <br>
-  <textarea style="width:100%" name="terminal" placeholder="نام ترمینال و دیگر توضیحات"></textarea>
+  <textarea name="address" style="width:100%" name="terminal" placeholder="آدرس به صورت استان-شهر-مرکز باربری یا ترمینال وارد شود"></textarea>
 </div>
 <div  class="w3-container w3-padding-16">
 <!-- <form action=""> -->

@@ -19,7 +19,6 @@ add send multipart file
 factor_show cp add to another factor
 menu button
 
-admin access verification before loading model
 price cant be zero
 prevent showing factors of other users
 prevent fake item ids to load in basket

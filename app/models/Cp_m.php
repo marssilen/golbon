@@ -223,8 +223,8 @@ return $result;
 function delete_comment($id){
 return $this->db->delete('comments',"id=$id");
 }
-function get_users($page=1){
-$result=$this->db->pagination("SELECT id, username, email, role FROM userlist",array(),$page,50);
+function get_users($page=1,$pagelimit){
+$result=$this->db->pagination("SELECT id, username, email, role FROM userlist",array(),$page,$pagelimit);
 return $result;
 }
 function edit_user($id,$options){

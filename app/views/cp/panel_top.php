@@ -80,7 +80,7 @@ $('.mother').click(function(e) {
             <li>
                 <a class="mother" href="#">Users <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionTwoLinks">
-                  <li><a href="<?= display(URL) ?>cp/get_users"><span class="glyphicon glyphicon-user"></span> Users list</a></li>
+                  <li><a href="<?= display(URL) ?>cp/get_users/"><span class="glyphicon glyphicon-user"></span> Users list</a></li>
                   <li><a href="<?= display(URL) ?>cp/comments">comments</a></li>
                   <li><a href="<?= display(URL) ?>cp/#">send message to user</a></li>
                 </ul>

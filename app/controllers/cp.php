@@ -141,8 +141,10 @@ $this->view('cp/menu',$data,true);
 }
 function get_users($page=1){
 $page=(int)$page;
-$data=$this->formModel->get_users($page);
-$this->view('cp/users_list',$data,true);
+$pagelimit=2;
+$data=$this->formModel->get_users($page,$pagelimit);
+$pview=$this->formModel->get_pview('userlist',$page,$pagelimit);
+$this->view('cp/users_list',['data'=>$data,'pview'=>$pview],true);
 }
 function edit_user($id){
 
@@ -151,7 +153,7 @@ if(isset($id)){
 if(isset($_POST['sub']) and $_POST['sub']=='submit'){
 //print_r($_POST);
 $this->formModel->edit_user($id,array('password'=>htmlentities($_POST['pass']),'email'=>htmlentities($_POST['email']),
-'address'=>htmlentities($_POST['add']),'phone'=>htmlentities($_POST['tel']),'role'=>htmlentities($_POST['role']),
+'phone'=>htmlentities($_POST['tel']),'role'=>htmlentities($_POST['role']),
 'block'=>htmlentities($_POST['block'])));
 }
 $data=$this->formModel->get_user($id);

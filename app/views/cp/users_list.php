@@ -24,10 +24,10 @@ echo'</pre>';
       </tr>
     </thead>
     <tbody>
-    <?php foreach($data as $user){?>
+    <?php foreach($data['data'] as $user){?>
       <tr>
         <td><?= $user['id'] ?></td>
-        <td><a href="edit_user/<?= $user['id'] ?>"><?= $user['username'] ?></a></td>
+        <td><a href="../edit_user/<?= $user['id'] ?>"><?= $user['username'] ?></a></td>
         <td><?= $user['email'] ?></td>
         <td><?= $user['role'] ?></td>
       </tr>
@@ -35,3 +35,4 @@ echo'</pre>';
       <?php } ?>
     </tbody>
   </table>
+<div class="w3-center"><?= $data['pview']?></div>
