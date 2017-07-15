@@ -1,15 +1,13 @@
-<html lang="en">
-<head>
-    <title>Login</title>
+
 <?php require 'app/views/head.php'; ?>
-</head>
+
 <body>
     <br>
     <div class="w3-padding">
     <div class="w3-content w3-row w3-container w3-padding-16 w3-round w3-card-2">
     <div class="w3-col s12 l6 w3-padding">
 
-        <form action="login/run/1" method="post">
+        <form action="<?=URL?>login/run/1" method="post">
             <input class="w3-input w3-round w3-border w3-border-blue w3-margin-2" style="padding: 5px" type="text" name="username" placeholder="Username"/><br>
             <input class="w3-input w3-round w3-border w3-border-blue w3-margin-2" style="padding: 5px" type="password" name="password" placeholder="Password"/><br>
             <button class="w3-input w3-blue w3-round w3-border w3-border-blue w3-margin-2" style="padding: 5px" type="submit" name="submit" value="submit">Login</button>

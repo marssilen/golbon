@@ -1,5 +1,5 @@
 <?php
-class Signup extends Controller 
+class Signup extends Controller
 {
 	protected $formModel;
 	function __construct(){
@@ -17,16 +17,16 @@ class Signup extends Controller
 		if(isset($_POST['submit'])){
                      if($_POST['username']!=NULL and $_POST['pass']!=NULL)
                         if($_POST['pass']==$_POST['retype']){
-			$this->formModel->userInsert($_POST['username'],sha1($_POST['pass']),$_POST['email'],$_POST['phone'],"");
+			$this->formModel->userInsert($_POST['username'],sha1($_POST['pass']),$_POST['email'],$_POST['phone']);
                         echo 'Activation link was sent to '.htmlentities($_POST['email']);
-                        
+
                         }else{
                             echo 'passwords do not match';
                         }
-                
+
                 }
-		
-		
+
+
 		$this->view('signup/index',$_POST);
 	}
         public function active_email($key=''){
