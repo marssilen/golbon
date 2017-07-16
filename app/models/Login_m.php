@@ -26,6 +26,7 @@ class Login_m extends Model
 					// return false;
           // die();
           // }
+					//we will use sessions as a sign in tool
 					Session::init();
 					Session::set('loggedIn',true);
 					Session::set('id',$sth[0]['id']);
