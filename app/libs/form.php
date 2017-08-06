@@ -9,6 +9,14 @@ $this->_postData[$field]=$_POST[$field];
 public function val()
 {
 }
+public static function chpost($var){
+  if(isset($_POST[$var])){
+    if($_POST[$var]!=''){
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
 public static function check($post,$data,$hardmode=FALSE){
 if($hardmode){
 if(sizeof($post)!=  sizeof($data)){

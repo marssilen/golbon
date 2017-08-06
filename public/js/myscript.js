@@ -282,6 +282,7 @@ $(slide3num[slide3Index-1]).fadeIn();
 			  body.animate({scrollTop:topasset}, '500');
 			}
 		}
+
 		
 	
 	

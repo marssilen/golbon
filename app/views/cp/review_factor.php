@@ -41,9 +41,7 @@ foreach($data as $item){
 
   <td><?= $item['price'] ?></td>
   <td><?= $item['price']*$item['num'] ?></td>
-  <td><a href="<?=URL?>cp/remove_from_list/<?=$item['id']?>">حذف</a></td>
-  <!--<td><?= /*$item['barging']*/NULL ?></td>-->
-  <!--<td><?= /*$last_price*/NULL ?></td>-->
+  <td><button onclick="query('<?=URL?>cp/remove_from_list/<?=$item['id']?>')">حذف</button></td>
 </tr>
 <?php
 }

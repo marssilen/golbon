@@ -2,9 +2,8 @@
 class Cp extends ControllerPanel
 {
 	function view($page,$data=array(),$secure=false){
-	parent::view('cp/panel_top');
-	parent::view($page,$data,$secure);
-	parent::view('cp/panel_down');
+        $this->page=$page;
+        parent::view('cp/panel_master',$data,$secure);
 	}
 function logout(){
 Session::destroy();
@@ -237,7 +236,11 @@ function factor_review(){
 	$this->view('cp/review_factor',$data);
 }
 function remove_from_list($id){
-	$this->formModel->remove_from_list($id);
+	if($this->formModel->remove_from_list($id)){
+	    echo 'done';
+    }else{
+	    echo 'failed';
+    }
 }
 function my_orders(){
 	$data=$this->formModel->get_my_orders();

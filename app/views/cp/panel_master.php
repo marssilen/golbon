@@ -68,7 +68,7 @@ $('.mother').click(function(e) {
         <ul>
         <?php if(Session::get('role')=='admin'){?>
             <li>
-                <a class="mother" href="#">Desktop <span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="mother" href="<?= LINK ?>">Desktop <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionOneLinks">
                   <li><a href="<?= display(URL) ?>cp/items/"><span class="glyphicon glyphicon-th"></span> Items</a></li>
                   <li><a href="<?= display(URL) ?>cp/show_cat"><span class="glyphicon glyphicon-list"></span> Categories</a></li>
@@ -87,7 +87,7 @@ $('.mother').click(function(e) {
             </li>
             <?php } ?>
             <li>
-                <a class="mother" href="#">گزارش <span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="mother" href="<?= LINK ?>">گزارش <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionThreeLinks" ><!--style="display: none;"-->
                   <li><a href="<?= display(URL) ?>cp/my_orders">سفارشات من</a></li>
                   <li><a href="<?= display(URL) ?>cp/my_favorites">لیست مورد علاقه</a></li>
@@ -105,3 +105,15 @@ $('.mother').click(function(e) {
 
   </div>
   <div class="col-xs-12 col-sm-10">
+      <?php
+      require_once 'app/views/'.$this->page.'.php';
+      ?>
+  </div>
+
+</div>
+</div>
+
+
+
+</body>
+</html>

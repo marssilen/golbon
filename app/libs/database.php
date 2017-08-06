@@ -25,8 +25,7 @@ class Database extends PDO{
 				$sth->bindValue(":$key",$value);
 			}
 		}
-
-		$sth->execute();
+		return $sth->execute();
 	}
 	public function update($table,$data,$where,$html=true){
 		ksort($data);

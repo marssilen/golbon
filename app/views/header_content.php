@@ -2,7 +2,7 @@
 <!--<img src="<?= URL.'public/img/header.jpg'?>" class="" style="width:100%;max-width:400px"/>-->
     <p>
     <h2 class="w3-left">
-      <a href="<?= URL ?>"><img src="<?= URL ?>public/digi.png"/></a>
+      <a href="<?= URL ?>"><img src="<?= URL ?>public/logo.png"/></a>
     </h2>
     <?php if(!$this->is_login){ ?>
     <a href="<?= LINK ?>"  <?= LOGIN ?> >وارد شوید</a>

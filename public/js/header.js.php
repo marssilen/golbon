@@ -2,6 +2,11 @@
 define('URL','http://localhost/golbon/');
 ?>
 <!-- <script> -->
+function textch() {
+    var x = document.getElementById("tex").value;
+    var regexp=/\D/g;
+    document.getElementById("tex").value=x.replace(regexp,"");
+}
 $(function(){
   $('#buy_btn').on('click',buy);
   $('#fav_btn').on('click',fav);
@@ -22,6 +27,24 @@ $(function(){
     if( msg_obj.st === "added to favorites" ){
       alert("به لیست علاقه مندی ها اضافه شد");
     }
+	if( msg_obj.st === "nouser" ){
+      //alert("fa");
+	  document.getElementById("signin").style.display="none";
+	  document.getElementById("signup").style.display="block";
+	  //alert("done");
+    }
+	if( msg_obj.st === "pass" ){
+      //alert("fa");
+	  document.getElementById("signup").style.display="none";
+	  document.getElementById("signin").style.display="block";
+	  //alert("done");
+    }
+	if( msg_obj.st === "wrongpassword" ){
+		alert("wrong password");
+	}
+	if( msg_obj.st === "passnotmatch" ){
+		alert("passwords are not the same");
+	}
     if( msg_obj.st === "logged" ){
       $.ajax({url: "<?= URL ?>ajax/header", success: function(result){
         $("#l_header").html(result);
@@ -30,9 +53,13 @@ $(function(){
     }
   }
   function login(){
-    var data=$('#login_form').serialize();
-    url='<?= URL ?>/login/run';
-    ajax(url,data);
+      if(document.getElementById("tex").value.length==11) {
+          var data = $('#login_form').serialize();
+          url = '<?= URL ?>/login/run';
+          ajax(url, data);
+      }else {
+          alert("لطفا شماره تلفن خود را وارد نمایید");
+      }
   }
   function buy(){
     var data=$('#form').serialize();
@@ -46,6 +73,7 @@ $(function(){
   }
   function ajax(url,data){
     $.post(url,data,function(da){
+		alert(da);
       msg(da,1);
     }).done(function(){
       // msg("done",1)

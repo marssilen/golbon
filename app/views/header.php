@@ -13,17 +13,27 @@
 <br>
 <div class="w3-container">
       <form id="login_form" method="post" enctype="multipart/form-data">
-        <!-- action="" method="post"  -->
         <div class="w3-section">
-          <label><b>نام کاربری</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="نام کاربری را وارد کنید" name="username" >
-          <label><b>رمز عبور</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="رمز عبور را وارد کنید" name="password" >
-          <!-- <button class="w3-btn-block w3-green w3-section w3-padding" id="login_btn">وارد شوید</button> -->
-
+          <label><b>شماره موبایل خود را وارد نمایید.</b></label>
+          <input dir="ltr" class="w3-input w3-border w3-margin-bottom" required type="tel" name="username" value="09"
+          minlength="11" maxlength="11" oninput="textch()" id="tex" placeholder="09*********">
+        </div>
+        <div class="w3-section" id="signin" style="display:none">
+          <label><b>password</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="password" name="password" >
+          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> مرا به یاد بسپار</input>
+        </div>
+        <div class="w3-section" id="signup" style="display:none">
+          <label><b>password</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="password" name="cpassword" >
+          <label><b>confirm password</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="password" name="cpassword1" >
           <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> مرا به یاد بسپار</input>
         </div>
       </form>
+
+
+
 
 <button class="w3-btn-block w3-green w3-section" id="login_btn">وارد شوید</button>
 </div>
