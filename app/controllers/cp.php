@@ -22,6 +22,9 @@ public function items($pageno=1)
 		$this->view('cp/index',['data'=>$data,'pview'=>$pview],true);
 	}
 }
+public function pm(){
+    $this->view('cp/pm',[]);
+}
 public function search_item($pageno=0)
 {
 	if(isAdmin()){
@@ -44,7 +47,7 @@ function add_item(){
 function delete_item($id=''){
 	if(isAdmin()){
 		$data=$this->formModel->delete_item($id);
-		header("Location: ".URL."cp");
+		header("Location: ".URL."cp/items/");
 	}
 }
 function delete_cat($id=''){
@@ -227,8 +230,7 @@ function factor_review(){
 	}
 	}
 	if (form::check($_POST, array('pay'))){
-	echo 'pay now';
-	echo $_POST['address'];
+        $this->view('cp/factor_paid',[]);
 	$price=$this->formModel->set_final_factor($factor_id,$_POST['address']);
 	die();
 	}

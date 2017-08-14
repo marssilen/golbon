@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="<?= display(URL) ?>public/w3.css">
 <link rel="stylesheet" href="<?= display(URL) ?>public/mycss.css">
 <link rel="stylesheet" href="<?= display(URL) ?>public/font/font.css">
+    <link rel="stylesheet" href="<?= display(URL) ?>public/common.css">
 <!-- jQuery library -->
 <script src="<?= display(URL) ?>public/bootstrap-3.3.6-dist/js/jquery.min.js"></script>
 
@@ -89,12 +90,13 @@ $('.mother').click(function(e) {
             <li>
                 <a class="mother" href="<?= LINK ?>">گزارش <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionThreeLinks" ><!--style="display: none;"-->
+                    <li><a href="<?= (($this->is_login)?URL."cp/factor_review/$fid":LINK) ?>">سبدخرید من</a></li>
                   <li><a href="<?= display(URL) ?>cp/my_orders">سفارشات من</a></li>
                   <li><a href="<?= display(URL) ?>cp/my_favorites">لیست مورد علاقه</a></li>
-                  <li><a href="<?= display(URL) ?>cp/my_comments">نظرات من</a></li>
-                  <li><a href="<?= display(URL) ?>cp/#">پیام پشتیبانی</a></li>
-                  <li><a href="<?= display(URL) ?>cp/profile">پروفایل من</a></li>
-                  <li><a href="<?= display(URL) ?>cp/address">آدرس های من</a></li>
+<!--                  <li><a href="--><?//= display(URL) ?><!--cp/my_comments">نظرات من</a></li>-->
+                  <li><a href="<?= display(URL) ?>cp/pm">پیام پشتیبانی</a></li>
+<!--                  <li><a href="--><?//= display(URL) ?><!--cp/profile">پروفایل من</a></li>-->
+<!--                  <li><a href="--><?//= display(URL) ?><!--cp/address">آدرس های من</a></li>-->
                 </ul>
             </li>
         </ul>

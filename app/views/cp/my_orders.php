@@ -31,7 +31,7 @@ foreach($data as $item){
   <td><?= $item['date'] ?></td>
   <td><?= $item['factor_price'] ?></td>
   <td><?= $GLOBALS['sta_array'][$item['status']] ?></td>
-  <td><a href="factor_show/<?= $item['id'] ?>">مشاهده</a></td>
+  <td><a href="cp/factor_show/<?= $item['id'] ?>">مشاهده</a></td>
 
 </tr>
 <?php

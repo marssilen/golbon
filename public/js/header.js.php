@@ -41,10 +41,10 @@ $(function(){
 	  //alert("done");
     }
 	if( msg_obj.st === "wrongpassword" ){
-		alert("wrong password");
+		alert("رمز عبور صحیح نیست");
 	}
 	if( msg_obj.st === "passnotmatch" ){
-		alert("passwords are not the same");
+		alert("رمزهای عبور یکسان نیستند");
 	}
     if( msg_obj.st === "logged" ){
       $.ajax({url: "<?= URL ?>ajax/header", success: function(result){
@@ -74,12 +74,12 @@ $(function(){
   }
   function ajax(url,data){
     $.post(url,data,function(da){
-		alert(da);
+		//alert(da);
       msg(da,1);
     }).done(function(){
       // msg("done",1)
     }).fail(function(){
-      msg("fail",2);
+      msg("اشکالی پیش آمده دوباره سعی کنید",2);
     });
   }
    $("#columnTwo").height($("#columnOne").height());

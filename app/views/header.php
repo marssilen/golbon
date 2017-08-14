@@ -1,5 +1,6 @@
-<div class="w3-blue-grey">
-<div style="padding:32px" id="l_header">
+<div style="background: #F8F8F8 url('http://localhost/golbon/public/back.png') right bottom repeat-x;">
+<!--<div style="background-image: url('public/back.png')">-->
+<div style="padding:32px;" id="l_header">
 <?php require_once('app/views/header_content.php'); ?>
 </div>
 </div>
@@ -19,14 +20,14 @@
           minlength="11" maxlength="11" oninput="textch()" id="tex" placeholder="09*********">
         </div>
         <div class="w3-section" id="signin" style="display:none">
-          <label><b>password</b></label>
+          <label><b>رمز عبور</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="password" name="password" >
           <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> مرا به یاد بسپار</input>
         </div>
         <div class="w3-section" id="signup" style="display:none">
-          <label><b>password</b></label>
+          <label><b>رمز عبور</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="password" name="cpassword" >
-          <label><b>confirm password</b></label>
+          <label><b>تکرار رمز عبور</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="password" name="cpassword1" >
           <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> مرا به یاد بسپار</input>
         </div>
@@ -39,8 +40,8 @@
 </div>
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
         <button onclick="document.getElementById('login_modal').style.display='none'" type="button" class="w3-btn w3-red w3-left">انصراف</button>
-        <span class="blcok"><a href="<?= URL ?>signup">ثبت نام</a></span>
-        <span class="block"><a href="">رمز را فراموش کرده اید؟</a></span>
+<!--        <span class="blcok"><a href="--><?//= URL ?><!--signup">ثبت نام</a></span>-->
+<!--        <span class="block"><a href="">رمز را فراموش کرده اید؟</a></span>-->
       </div>
 
     </div>

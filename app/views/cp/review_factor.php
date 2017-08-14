@@ -60,7 +60,7 @@ foreach($data as $item){
 <div  class="w3-container">
   ارسال از طریق باربری:
   <br>
-  <textarea name="address" style="width:100%" name="terminal" placeholder="آدرس به صورت استان-شهر-مرکز باربری یا ترمینال وارد شود"></textarea>
+  <textarea required name="address" style="width:100%" name="terminal" placeholder="آدرس به صورت استان-شهر-مرکز باربری یا ترمینال وارد شود"></textarea>
 </div>
 <div  class="w3-container w3-padding-16">
 <!-- <form action=""> -->
