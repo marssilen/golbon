@@ -1,4 +1,4 @@
-<div style="background: #F8F8F8 url('http://localhost/golbon/public/back.png') right bottom repeat-x;">
+<div style="background: #F8F8F8 url('<?=URL?>public/back.png') right bottom repeat-x;">
 <!--<div style="background-image: url('public/back.png')">-->
 <div style="padding:32px;" id="l_header">
 <?php require_once('app/views/header_content.php'); ?>

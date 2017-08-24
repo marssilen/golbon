@@ -1,9 +1,26 @@
 <!doctype html>
-<html dir="rtl" lang="fa">
+<html lang="fa" dir="rtl" prefix="og: http://ogp.me/ns#">
 <head>
-    <title>فراورده های کنجدی گلبن فروشگاه پنج پر</title>
-    <meta name="description" content="فروشگاه اینترنتی گلبن فروشنده محصولات کنجدی و روغنی و فروش اینترنتی محصولات از معتبرترین برندهای فعال در کشور">
-    <meta name="keywords" content="فروشگاه اینترنتی, خرید آنلاین، روغن ارده ی کنجد, روغن ارده, روغن کنجد, ارده ی کنجد, ارده, کرم کنجد, کرم ارده, کرم کاکائو, حلوا ارده,حلوا شکری, حلوا, فروش اینترنتی، گلبن، گل بن" />
+<title>فراورده های کنجدی گلبن فروشگاه پنج پر</title>
+<meta name="description" content="فروشگاه اینترنتی گلبن فروشنده محصولات کنجدی و روغنی و فروش اینترنتی محصولات از معتبرترین برندهای فعال در کشور">
+<meta name="keywords" content="فروشگاه اینترنتی, خرید آنلاین، روغن ارده ی کنجد, روغن ارده, روغن کنجد, ارده ی کنجد, ارده, کرم کنجد, کرم ارده, کرم کاکائو, حلوا ارده,حلوا شکری, حلوا, فروش اینترنتی، گلبن، گل بن" />
+<meta property="og:locale" content="fa"/>
+<meta property="og:title" content="فروشگاه تولیدی گلبن"/>
+<meta property="og:description" content="فروشگاه اینترنتی گلبن فروشنده محصولات کنجدی و روغنی و فروش اینترنتی محصولات از معتبرترین برندهای فعال در کشور"/>
+<meta property="og:url" content="http://<?=URL?>/"/>
+<meta property="og:site_name" content="فروشگاه تولیدی گلبن"/>
+<meta property="article:tag" content="فروشگاه"/>
+<meta property="article:tag" content="کنجد"/>
+<meta property="article:tag" content="روغن کنجد"/>
+<meta property="article:tag" content="روغن ارده کنجد"/>
+<meta property="article:tag" content="حلوا ارده"/>
+<meta property="article:tag" content="کرک ارده"/>
+<meta property="article:section" content="فروشگاه"/>
+<meta property="og:image" content="<?=URL?>public/logo.png"/>
+
+
+
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="فروشگاه اینترنتی گلبن" /><meta name="language" content="fa" />

@@ -11,8 +11,9 @@ class Model
 			$this->db->insert('factors',array('user_id'=>$user_id,'status'=>'0'));
 			$data=$this->db->select("SELECT * FROM factors WHERE user_id= :user_id AND status= :status LIMIT 1",array('user_id' => $user_id,'status'=>'0'));
 		}
+		if(isset($data[0]['id'])){
 		Session::set('factor_id',$data[0]['id']);
-		return $data[0]['id'];
+		return $data[0]['id'];}
 	}
 	function check_user($table,$id,$sta){
 		$user_id= Session::get('id');
