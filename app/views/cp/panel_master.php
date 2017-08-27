@@ -75,7 +75,7 @@ $('.mother').click(function(e) {
                   <li><a href="<?= display(URL) ?>cp/show_cat"><span class="glyphicon glyphicon-list"></span> Categories</a></li>
                   <li><a href="<?= display(URL) ?>cp/s"><span class="glyphicon glyphicon-picture"></span> Files</a></li>
                   <li><a href="<?= display(URL) ?>cp/purchased"><span class="glyphicon glyphicon-shopping-cart"></span> Orders</a></li>
-                  <li><a href="<?= display(URL) ?>cp/menu">Menu</a></li>
+				  <li><a href="<?= display(URL) ?>cp/menu"><span class="glyphicon glyphicon-menu-hamburger"></span>Menu</a></li>
                 </ul>
             </li>
             <li>
